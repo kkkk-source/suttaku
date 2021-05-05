@@ -1,0 +1,60 @@
+.sypnosis {
+  height: auto;
+  max-width: 650px;
+  border-radius: 10px;
+  border: 1px solid black;
+
+  .header {
+    height: 200px;
+    border: 1px solid red;
+  }
+
+  .image {
+    object-fit: cover;
+  }
+
+  .imageLink {
+    display: block;
+  }
+
+  .imageLink, .image {
+    height: 100%;
+  }
+
+  .header, .image, .imageLink {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .body, .footer {
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .body {
+    padding-top: 25px;
+    padding-bottom: 0;
+  }
+
+  .footer {
+    padding-top: 0;
+    padding-bottom: 25px;
+  }
+
+  .title, .subtitle {
+    margin: 0 0 10px;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 25px;
+  }
+
+  .subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
