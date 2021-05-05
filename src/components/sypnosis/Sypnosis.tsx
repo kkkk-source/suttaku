@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import style from './Sypnosis.module.scss';
+import './Sypnosis.module.scss';
 
 interface SypnosisProps {
   imgURL:   string
@@ -10,7 +10,7 @@ interface SypnosisProps {
 
 const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgURL, time }) => {
   return (
-    <article className={style.sypnosis} >
+    <article>
       <Header 
         url={imgURL} 
         alt={title} 
@@ -26,10 +26,9 @@ const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgURL, t
 
 const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) => {
   return (
-    <header className={style.header} >
-      <a className={style.imageLink} href="/">
+    <header>
+      <a href="/">
         <img 
-          className={style.image}
           src={url} 
           alt={alt} 
         />
@@ -40,16 +39,21 @@ const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) =
 
 const Body: FunctionComponent<{ title: string, subtitle: string }> = ({ title, subtitle }) => {
   return (
-    <div className={style.body} >
-      <h2 className={style.title}>{title}</h2>
-      <h3 className={style.subtitle}>{subtitle}</h3>
+    <div >
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
     </div>
   );
 };
 
 const Footer: FunctionComponent<{ time: string }> = ({ time }) => {
   return (
-    <footer className={style.footer} >
+    <footer>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z"></path>
+        <circle cx="12" cy="12" r="9"></circle>
+        <polyline points="12 7 12 12 15 15"></polyline>
+      </svg>
       <time>{time}</time>
     </footer>
   );
