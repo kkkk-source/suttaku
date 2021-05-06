@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import '../../App.scss';
 import './Sypnosis.module.scss';
 
 interface SypnosisProps {
@@ -40,7 +41,7 @@ const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) =
 const Body: FunctionComponent<{ title: string, subtitle: string }> = ({ title, subtitle }) => {
   return (
     <div >
-      <h2>{title}</h2>
+      <h2><a href="/">{title}</a></h2>
       <h3>{subtitle}</h3>
     </div>
   );
@@ -49,7 +50,9 @@ const Body: FunctionComponent<{ title: string, subtitle: string }> = ({ title, s
 const Footer: FunctionComponent<{ time: string }> = ({ time }) => {
   return (
     <footer>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" 
+        fill="none" stroke-linecap="round" stroke-linejoin="round" >
         <path stroke="none" d="M0 0h24v24H0z"></path>
         <circle cx="12" cy="12" r="9"></circle>
         <polyline points="12 7 12 12 15 15"></polyline>
