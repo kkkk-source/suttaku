@@ -1,0 +1,18 @@
+@use '../../styles/abstracts/colors';
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/radii';
+@use '../../styles/abstracts/funcs';
+
+.category {
+  display: inline-block;
+  border-radius: radii.$tag;
+  font-size: fonts.$size-sm;
+  padding: funcs.rem(8px) funcs.rem(16px);
+  margin: 0 funcs.rem(10px) funcs.rem(10px) 0;
+  text-transform: capitalize;
+
+  &__link {
+    color: colors.$light-fg;
+    text-decoration: none;
+  }
+}
