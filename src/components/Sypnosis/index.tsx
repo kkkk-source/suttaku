@@ -1,26 +1,31 @@
 import { FunctionComponent } from 'react';
 import ClockSVG from 'components/svg/Clock';
+import Category from 'components/Category';
 import style from './Sypnosis.module.scss';
 
 export interface SypnosisProps {
-  imgUrl:   string
-  title:    string
-  subtitle: string
-  time:     string
+  imgUrl:     string
+  title:      string
+  subtitle:   string
+  time:       string
+  categories: Array<string>
 }
 
-const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgUrl, time }) => {
+const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgUrl, time, categories }) => {
   return (
     <article className={style.sypnosis}>
       <Header
         url={imgUrl} 
         alt={title} 
       />
-      <Resume 
-        title={title} 
-        subtitle={subtitle} 
-      />
-      <Footer time={time} />
+      <div className={style.sypnosis__resume}>
+        <Categories categories={categories} />
+          <Resume 
+            title={title} 
+            subtitle={subtitle} 
+          />
+          <Footer time={time} />
+        </div>
     </article>
   );
 };
@@ -40,9 +45,22 @@ const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) =
   );
 };
 
+const Categories: FunctionComponent<{ categories: Array<string> }> = ({ categories }) => {
+  const categoryComponents: Array<JSX.Element> = [];
+  for (let i = 0; i < categories.length; i++) {
+    categoryComponents.push( <Category name={categories[i]} />);
+  }
+
+  return (
+    <ul className={style.sypnosis__categories}>
+      {categoryComponents}
+    </ul>
+  );
+};
+
 const Resume: FunctionComponent<{ title: string, subtitle: string }> = ({ title, subtitle }) => {
   return (
-    <div className={style.sypnosis__resume}>
+    <>
       <h2 className={style.sypnosis__title}>
         <a className={style.sypnosis__titleLink}
           href="/" >
@@ -52,7 +70,7 @@ const Resume: FunctionComponent<{ title: string, subtitle: string }> = ({ title,
       <h3 className={style.sypnosis__subtitle}>
         {subtitle}
       </h3>
-    </div>
+    </>
   );
 };
 
