@@ -10,7 +10,7 @@ const App: FunctionComponent = () => {
     sypnosisComponents.push(
       <Sypnosis 
         imgUrl={s.imgURL} title={s.title} 
-        subtitle={s.subtitle} time={s.time}
+        subtitle={s.subtitle} time={s.time} categories={s.categories}
       />
     );
   }
