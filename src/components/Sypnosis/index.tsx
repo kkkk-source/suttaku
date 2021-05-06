@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
-import clockSVG from 'assets/clock.svg';
-import './Sypnosis.module.scss';
+import ClockSVG from 'components/svg/Clock';
+import style from './Sypnosis.module.scss';
 
-interface SypnosisProps {
+export interface SypnosisProps {
   imgUrl:   string
   title:    string
   subtitle: string
@@ -11,12 +11,12 @@ interface SypnosisProps {
 
 const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgUrl, time }) => {
   return (
-    <article>
-      <Header 
+    <article className={style.sypnosis}>
+      <Header
         url={imgUrl} 
         alt={title} 
       />
-      <Body 
+      <Resume 
         title={title} 
         subtitle={subtitle} 
       />
@@ -27,9 +27,11 @@ const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgUrl, t
 
 const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) => {
   return (
-    <header>
-      <a href="/">
-        <img 
+    <header className={style.sypnosis__header}>
+      <a className={style.sypnosis__bannerLink}
+        href="/"
+      >
+        <img className={style.sypnosis__banner}
           src={url} 
           alt={alt} 
         />
@@ -38,20 +40,29 @@ const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) =
   );
 };
 
-const Body: FunctionComponent<{ title: string, subtitle: string }> = ({ title, subtitle }) => {
+const Resume: FunctionComponent<{ title: string, subtitle: string }> = ({ title, subtitle }) => {
   return (
-    <div >
-      <h2><a href="/">{title}</a></h2>
-      <h3>{subtitle}</h3>
+    <div className={style.sypnosis__resume}>
+      <h2 className={style.sypnosis__title}>
+        <a className={style.sypnosis__titleLink}
+          href="/" >
+          {title}
+        </a>
+      </h2>
+      <h3 className={style.sypnosis__subtitle}>
+        {subtitle}
+      </h3>
     </div>
   );
 };
 
 const Footer: FunctionComponent<{ time: string }> = ({ time }) => {
   return (
-    <footer>
-      <img src={clockSVG} alt="logo"/>
-      <time>{time}</time>
+    <footer className={style.sypnosis__footer}>
+      <ClockSVG className={style.sypnosis__svg} />
+      <time className={style.sypnosis__time}>
+        {time}
+      </time>
     </footer>
   );
 };
