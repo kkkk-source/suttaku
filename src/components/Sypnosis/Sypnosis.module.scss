@@ -6,9 +6,10 @@
 
 .sypnosis {
   margin-bottom: funcs.rem(40px);
-  max-width: funcs.rem(650px);
+  max-width: funcs.rem(690px);
   box-shadow: shadows.$normal;
   border-radius: radii.$corner;
+  background-color: colors.$light-fg;
 
   &__header {
     height: funcs.rem(200px);
