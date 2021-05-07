@@ -13,7 +13,7 @@
     position: relative;
     width: funcs.rem(120px);
     height: funcs.rem(120px);
-    margin-bottom: funcs.rem(20px);
+    margin: 0 0 funcs.rem(20px);
   }
 
   &__avatar {
@@ -47,15 +47,12 @@
   }
 
   &__copy {
+    margin: 0;
     color: colors.$gray-100;
     font-size: fonts.$size-sm;
   }
 
   &, &__avatar {
     width: 100%;
-  }
-
-  &__figure, &__copy {
-    margin: 0;
   }
 }
