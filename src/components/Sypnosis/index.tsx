@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import ClockSVG from 'components/svg/Clock';
+import ClockSVG from 'components/svg/ClockSVG';
 import Category from 'components/Category';
 import style from './Sypnosis.module.scss';
 
