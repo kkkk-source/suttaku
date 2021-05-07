@@ -5,7 +5,7 @@ const Details: FunctionComponent = () => {
   return (
     <div className={style.details}>
       <figure className={style.details__figure}>
-        <img className={style.details__avatar} src="https://d33wubrfki0l68.cloudfront.net/71ea12e296f1026c4195d92022f148f03439188b/9960c/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_2.png" alt="" />
+        <img className={style.details__avatar} src="https://avatars.githubusercontent.com/u/68973000?v=4" alt="" />
         <span className={style.details__emoji}>🍥</span>
       </figure>
       <h1 className={style.details__title}>
