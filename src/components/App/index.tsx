@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 import Sypnosis from 'components/Sypnosis';
+import Details from 'components/Details';
 import { SYPNOSIS, SypnosisProps } from '../../mock-sypnosis';
 
 const App: FunctionComponent = () => {
@@ -17,6 +18,7 @@ const App: FunctionComponent = () => {
 
   return (
     <div>
+      <Details />
       {sypnosisComponents}
     </div>
   );
