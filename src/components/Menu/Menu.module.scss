@@ -1,0 +1,44 @@
+@use '../../styles/abstracts/colors';
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/funcs';
+
+.menu {
+  width: 100%;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    padding: funcs.rem(10px) 0;
+    margin-bottom: funcs.rem(15px);
+  }
+
+  &__itemSelected &__icon,
+  &__itemSelected &__label {
+    color: colors.$dark-blue;
+  }
+
+  &__itemSelected &__label {
+    font-weight: 700;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__icon {
+    width: funcs.rem(20px);
+    height: funcs.rem(20px);
+    margin-right: funcs.rem(40px);
+    color: colors.$gray-100;
+    stroke-width: 1.35;
+  }
+
+  &__label {
+    font-weight: 400;
+    color: colors.$gray-100;
+    text-transform: capitalize;
+    font-size: fonts.$size-sm;
+  }
+}
