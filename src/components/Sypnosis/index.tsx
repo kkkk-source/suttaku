@@ -48,7 +48,7 @@ const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) =
 const Categories: FunctionComponent<{ categories: Array<string> }> = ({ categories }) => {
   const categoryComponents: Array<JSX.Element> = [];
   for (let i = 0; i < categories.length; i++) {
-    categoryComponents.push( <Category name={categories[i]} />);
+    categoryComponents.push( <Category key={i} name={categories[i]} />);
   }
 
   return (
