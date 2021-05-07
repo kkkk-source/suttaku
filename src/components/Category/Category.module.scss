@@ -9,10 +9,7 @@
   font-size: fonts.$size-sm;
   padding: funcs.rem(8px) funcs.rem(16px);
   margin: 0 funcs.rem(10px) funcs.rem(10px) 0;
+  color: colors.$light-fg;
+  text-decoration: none;
   text-transform: capitalize;
-
-  &__link {
-    color: colors.$light-fg;
-    text-decoration: none;
-  }
 }

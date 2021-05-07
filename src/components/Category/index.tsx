@@ -10,11 +10,9 @@ const categories: { [key: string]: string } = {
 
 const Category: FunctionComponent<{ name: string }> = ({ name }) => {
   return (
-    <span className={style.category} style={{ backgroundColor: categories[name] }}>
-      <a className={style.category__link} href="/">
+    <a className={style.category} style={{ backgroundColor: categories[name] }} href="/">
         {name}
-      </a>
-    </span>
+    </a>
   );
 };
 
