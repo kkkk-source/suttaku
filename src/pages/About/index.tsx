@@ -1,8 +1,7 @@
-import { FunctionComponent } from 'react';
-import style from './About.module.scss';
 import ClockSVG from 'components/svg/ClockSVG';
+import style from './About.module.scss';
 
-const About: FunctionComponent = () => {
+function About(): JSX.Element {
   return (
     <div className={style.about}>
       <div className={style.about__resume}>
@@ -38,12 +37,14 @@ const About: FunctionComponent = () => {
   );
 };
 
-const Resume: FunctionComponent<{ title: string, subtitle: string }> = ({ title, subtitle }) => {
+function Resume({ title, subtitle }: { title: string, subtitle: string }): JSX.Element {
   return (
     <>
       <h2 className={style.about__title}>
-        <a className={style.about__titleLink}
-          href="/" >
+        <a 
+          href="/"
+          className={style.about__titleLink}
+        >
           {title}
         </a>
       </h2>
@@ -54,7 +55,7 @@ const Resume: FunctionComponent<{ title: string, subtitle: string }> = ({ title,
   );
 };
 
-const Footer: FunctionComponent<{ time: string }> = ({ time }) => {
+function Footer({ time }: { time: string }): JSX.Element {
   return (
     <footer className={style.about__footer}>
       <ClockSVG className={style.about__svg} />

@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'react';
 import { Route, HashRouter } from 'react-router-dom';
 import Details from 'components/Details';
 import Menu from 'components/Menu';
@@ -6,7 +5,7 @@ import About from 'pages/About';
 import Home from 'pages/Home';
 import style from './Main.module.scss';
 
-const Main: FunctionComponent = () => {
+function Main(): JSX.Element {
   return (
     <main className={style.mainScene}>
       <HashRouter>
@@ -15,8 +14,15 @@ const Main: FunctionComponent = () => {
           <Menu />
         </aside>
         <div className={style.mainScene__main}>
-          <Route exact path='/' component={Home} />
-          <Route path='/about' component={About} />
+          <Route 
+            exact 
+            path='/' 
+            component={Home} 
+          />
+          <Route 
+            path='/about' 
+            component={About} 
+          />
         </div>
       </HashRouter>
     </main>

@@ -1,7 +1,6 @@
-import { FunctionComponent } from 'react';
 import Main from 'scenes/Main';
 
-const App: FunctionComponent = () => {
+function App(): JSX.Element {
   return (
     <>
       <Main />

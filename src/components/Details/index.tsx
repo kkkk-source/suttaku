@@ -1,15 +1,23 @@
-import { FunctionComponent } from 'react';
 import style from './Details.module.scss';
 
-const Details: FunctionComponent = () => {
+function Details(): JSX.Element {
   return (
     <div className={style.details}>
       <figure className={style.details__figure}>
-        <img className={style.details__avatar} src="https://avatars.githubusercontent.com/u/68973000?v=4" alt="" />
-        <span className={style.details__emoji}>🍥</span>
+        <img 
+          className={style.details__avatar} 
+          src="https://avatars.githubusercontent.com/u/68973000?v=4" 
+          alt="" 
+        />
+        <span className={style.details__emoji}>
+          🍥
+        </span>
       </figure>
       <h1 className={style.details__title}>
-        <a className={style.details__link} href="/">
+        <a 
+          href="/"
+          className={style.details__link}
+        >
           Example Site
         </a>
       </h1>

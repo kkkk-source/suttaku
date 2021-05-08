@@ -1,8 +1,8 @@
-import { FunctionComponent } from 'react';
-import Sypnosis from 'components/Sypnosis';
 import { SYPNOSIS, SypnosisProps } from '../../mock-sypnosis';
+import Sypnosis from 'components/Sypnosis';
+import style from './Home.module.scss';
 
-const Home: FunctionComponent = () => {
+function Home(): JSX.Element  {
   const sypnosis: Array<SypnosisProps> = SYPNOSIS; 
   const sypnosisJSXElements: Array<JSX.Element> = [];
 
@@ -17,7 +17,7 @@ const Home: FunctionComponent = () => {
   }
 
   return (
-    <div>
+    <div className={style.home}>
       {sypnosisJSXElements}
     </div>
   );

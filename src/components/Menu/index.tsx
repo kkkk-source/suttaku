@@ -1,19 +1,26 @@
-import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import AboutSVG from 'components/svg/AboutSVG';
 import HomeSVG from 'components/svg/HomeSVG';
 import style from './Menu.module.scss';
 
-const Menu: FunctionComponent = () => {
+function Menu(): JSX.Element {
   return (
     <ol className={style.menu}>
       <li className={style.menu__item}>
-        <NavLink activeClassName={style.menu__active} exact to='/'>
+        <NavLink 
+          className={style.menu__link} 
+          activeClassName={style.menu__active} 
+          exact to='/'
+        >
           <Home />
         </NavLink>
       </li>
       <li className={style.menu__item}>
-        <NavLink activeClassName={style.menu__active} to='/about'>
+        <NavLink 
+          className={style.menu__link} 
+          activeClassName={style.menu__active} 
+          to='/about'
+        >
           <About />
         </NavLink>
       </li>
@@ -21,21 +28,25 @@ const Menu: FunctionComponent = () => {
   );
 };
 
-const Home: FunctionComponent = () => {
+function Home(): JSX.Element {
   return (
-    <div className={style.menu__link}>
+    <>
       <HomeSVG className={style.menu__icon} />
-      <span className={style.menu__label}>Home</span>
-    </div>
+      <span className={style.menu__label}>
+        Home
+      </span>
+    </>
   );
 };
 
-const About: FunctionComponent = () => {
+function About(): JSX.Element {
   return (
-    <div className={style.menu__link}>
+    <>
       <AboutSVG className={style.menu__icon} />
-      <span className={style.menu__label}>About</span>
-    </div>
+      <span className={style.menu__label}>
+        About
+      </span>
+    </>
   );
 };
 

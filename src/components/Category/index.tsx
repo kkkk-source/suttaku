@@ -1,17 +1,20 @@
-import { FunctionComponent } from 'react';
 import style from './Category.module.scss';
 
-const categories: { [key: string]: string } = {
+const CATEGORIES: { [key: string]: string } = {
   syntax: '#2a9d8f',
   themes: '#ffb900',
-  test:   '#df7988',
   试:     '#8ea885',
+  test:   '#df7988',
 };
 
-const Category: FunctionComponent<{ name: string }> = ({ name }) => {
+function Category({ name }: { name: string }): JSX.Element {
   return (
-    <a className={style.category} style={{ backgroundColor: categories[name] }} href="/">
-        {name}
+    <a 
+      className={style.category} 
+      style={{ backgroundColor: CATEGORIES[name] }} 
+      href="/"
+    >
+      {name}
     </a>
   );
 };
