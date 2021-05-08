@@ -20,12 +20,12 @@ const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgUrl, t
       />
       <div className={style.sypnosis__resume}>
         <Categories categories={categories} />
-          <Resume 
-            title={title} 
-            subtitle={subtitle} 
-          />
-          <Footer time={time} />
-        </div>
+        <Resume 
+          title={title} 
+          subtitle={subtitle} 
+        />
+        <Footer time={time} />
+      </div>
     </article>
   );
 };
