@@ -12,8 +12,8 @@
     margin-bottom: funcs.rem(15px);
   }
 
-  &__itemSelected &__icon,
-  &__itemSelected &__label {
+  &__active &__icon,
+  &__active &__label {
     color: colors.$dark-blue;
   }
 

@@ -7,13 +7,13 @@ import style from './Menu.module.scss';
 const Menu: FunctionComponent = () => {
   return (
     <ol className={style.menu}>
-      <li className={`${style.menu__item} ${style.menu__itemSelected}`}>
-        <NavLink exact to='/'>
+      <li className={style.menu__item}>
+        <NavLink activeClassName={style.menu__active} exact to='/'>
           <Home />
         </NavLink>
       </li>
       <li className={style.menu__item}>
-        <NavLink to='/about'>
+        <NavLink activeClassName={style.menu__active} to='/about'>
           <About />
         </NavLink>
       </li>
