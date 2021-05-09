@@ -42,3 +42,18 @@
     font-size: fonts.$size-sm;
   }
 }
+
+.menuDark {
+  .menu__active .menu__icon,
+  .menu__active .menu__label {
+    color: colors.$white-900;
+  }
+
+  &__icon {
+    color: colors.$white-400;
+  }
+
+  &__label {
+    color: colors.$white-400;
+  }
+}

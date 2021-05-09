@@ -91,3 +91,43 @@
     width: 100%;
   }
 }
+
+.sypnosisLight {
+  background-color: colors.$light-fg;
+
+  &__title {
+    color: colors.$gray-700;
+  }
+
+  &__subtitle {
+    color: colors.$gray-200;
+  }
+
+  &__footer {
+    color: colors.$gray-100;
+  }
+
+  &__svg {
+    color: colors.$gray-100;
+  }
+}
+
+.sypnosisDark {
+  background-color: colors.$dark-fg;
+
+  .sypnosis__title {
+    color: colors.$white-900;
+  }
+
+  .sypnosis__subtitle {
+    color: colors.$white-700;
+  }
+
+  .sypnosis__footer {
+    color: colors.$gray-100;
+  }
+
+  .sypnosis__svg {
+    color: colors.$gray-100;
+  }
+}

@@ -4,13 +4,25 @@ body {
   background-color: colors.$light-bg;
 }
 
+.mainContainer {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.mainDark {
+  background-color: colors.$dark-bg;
+}
+
+.mainLight {
+  background-color: colors.$light-bg;
+}
+
 .mainScene {
   max-width: 972px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: row;
-  background-color: colors.$light-bg;
 
   &__aside {
     width: 30%;

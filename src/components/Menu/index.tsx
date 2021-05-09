@@ -2,10 +2,13 @@ import { NavLink } from 'react-router-dom';
 import AboutSVG from 'components/svg/AboutSVG';
 import HomeSVG from 'components/svg/HomeSVG';
 import style from './Menu.module.scss';
+import { useAppSelector } from 'app/hooks';
 
 function Menu(): JSX.Element {
+  const theme = useAppSelector(state => state.theme.value);
+
   return (
-    <ol className={style.menu}>
+    <ol className={`${theme === 'dark' ? style.menuDark : style.menuLight} ${style.menu}`}>
       <li className={style.menu__item}>
         <NavLink 
           className={style.menu__link} 

@@ -1,8 +1,11 @@
 import style from './Details.module.scss';
+import { useAppSelector } from 'app/hooks';
 
 function Details(): JSX.Element {
+  const theme = useAppSelector(state => state.theme.value);
+
   return (
-    <div className={style.details}>
+    <div className={`${theme === 'dark' ? style.detailsDark : style.detailsLight} ${style.details}`}>
       <figure className={style.details__figure}>
         <img 
           className={style.details__avatar} 

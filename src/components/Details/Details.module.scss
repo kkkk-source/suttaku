@@ -56,3 +56,18 @@
     width: 100%;
   }
 }
+
+.detailsDark {
+
+  .details__emoji {
+    background-color: colors.$dark-fg;
+  }
+
+  .details__link {
+    color: colors.$white-900;
+  }
+
+  .details__copy {
+    color: colors.$white-700;
+  }
+}

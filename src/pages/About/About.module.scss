@@ -5,7 +5,6 @@
 @use '../../styles/abstracts/shadows';
 
 .about {
-  min-height: 100vh;
   max-width: funcs.rem(690px);
   padding: funcs.rem(30px) funcs.rem(15px);
   border-radius: radii.$corner;
@@ -79,5 +78,33 @@
 
   &__resume, &__title, &__subtitle, &__footer {
     width: 100%;
+  }
+}
+
+.aboutDark {
+  background-color: colors.$dark-fg;
+
+  .about__title {
+    color: colors.$white-900;
+  }
+
+  .about__subtitle {
+    color: colors.$white-700;
+  }
+
+  .about__footer {
+    color: colors.$gray-100;
+  }
+
+  .about__svg {
+    color: colors.$gray-100;
+  }
+
+  .about__copy {
+    color: colors.$white-700;
+  }
+
+  .about__list {
+    color: colors.$white-400;
   }
 }
