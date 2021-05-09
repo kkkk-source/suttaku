@@ -1,17 +1,16 @@
-import { FunctionComponent } from 'react';
-import ClockSVG from 'components/svg/ClockSVG';
 import Category from 'components/Category';
+import ClockSVG from 'components/svg/ClockSVG';
 import style from './Sypnosis.module.scss';
 
 export interface SypnosisProps {
-  imgUrl:     string
   title:      string
   subtitle:   string
+  imgUrl:     string
   time:       string
   categories: Array<string>
 }
 
-const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgUrl, time, categories }) => {
+function Sypnosis({ title, subtitle, imgUrl, time, categories }: SypnosisProps): JSX.Element {
   return (
     <article className={style.sypnosis}>
       <Header
@@ -30,7 +29,7 @@ const Sypnosis: FunctionComponent<SypnosisProps> = ({ title, subtitle, imgUrl, t
   );
 };
 
-const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) => {
+function Header({ url, alt }: { url: string, alt: string }): JSX.Element {
   return (
     <header className={style.sypnosis__header}>
       <a className={style.sypnosis__bannerLink}
@@ -45,7 +44,7 @@ const Header: FunctionComponent<{ url: string, alt: string }> = ({ url, alt }) =
   );
 };
 
-const Categories: FunctionComponent<{ categories: Array<string> }> = ({ categories }) => {
+function Categories({ categories }: { categories: Array<string> }): JSX.Element {
   const categoryComponents: Array<JSX.Element> = [];
   for (let i = 0; i < categories.length; i++) {
     categoryComponents.push( <Category key={i} name={categories[i]} />);
@@ -58,12 +57,14 @@ const Categories: FunctionComponent<{ categories: Array<string> }> = ({ categori
   );
 };
 
-const Resume: FunctionComponent<{ title: string, subtitle: string }> = ({ title, subtitle }) => {
+function Resume({ title, subtitle }: { title: string, subtitle: string }): JSX.Element {
   return (
     <>
       <h2 className={style.sypnosis__title}>
-        <a className={style.sypnosis__titleLink}
-          href="/" >
+        <a 
+          href="/" 
+          className={style.sypnosis__titleLink}
+        >
           {title}
         </a>
       </h2>
@@ -74,7 +75,7 @@ const Resume: FunctionComponent<{ title: string, subtitle: string }> = ({ title,
   );
 };
 
-const Footer: FunctionComponent<{ time: string }> = ({ time }) => {
+function Footer({ time }: { time: string }): JSX.Element {
   return (
     <footer className={style.sypnosis__footer}>
       <ClockSVG className={style.sypnosis__svg} />
