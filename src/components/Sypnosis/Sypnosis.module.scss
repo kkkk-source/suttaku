@@ -9,7 +9,7 @@
   max-width: funcs.rem(690px);
   box-shadow: shadows.$normal;
   border-radius: radii.$corner;
-  background-color: colors.$light-fg;
+  background-color: var(--color-fg);
 
   &__header {
     height: funcs.rem(200px);
@@ -35,7 +35,7 @@
   &__title {
     font-weight: 700;
     font-size: fonts.$size-lg;
-    color: colors.$gray-700;
+    color: var(--text-800);
   }
 
   &__titleLink {
@@ -46,7 +46,7 @@
   &__subtitle {
     line-height: 1.5;
     font-weight: 400;
-    color: colors.$gray-200;
+    color: var(--text-300);
     font-size: fonts.$size-md;
   }
 
@@ -54,14 +54,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: colors.$gray-100;
+    color: var(--text-200);
   }
 
   &__svg {
     width: funcs.rem(20px);
     height: funcs.rem(20px);
     margin-right: funcs.rem(15px);
-    color: colors.$gray-100;
+    color: var(--text-200);
   }
 
   &__time {

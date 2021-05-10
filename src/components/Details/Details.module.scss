@@ -33,7 +33,7 @@
     right: 0;
     border-radius: radii.$circle;
     box-shadow: shadows.$circle;
-    background-color: colors.$light-fg;
+    background-color: var(--color-fg);
   }
 
   &__title {
@@ -42,13 +42,13 @@
 
   &__link {
     text-decoration: none;
-    color: colors.$dark-blue;
+    color: var(--text-900);
     font-size: funcs.rem(19px);
   }
 
   &__copy {
     margin: 0;
-    color: colors.$gray-100;
+    color: var(--text-200);
     font-size: fonts.$size-sm;
   }
 

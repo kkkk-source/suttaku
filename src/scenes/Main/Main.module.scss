@@ -1,7 +1,9 @@
 @use '../../styles/abstracts/colors';
 
-body {
-  background-color: colors.$light-bg;
+.mainContent {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bg);
 }
 
 .mainScene {
@@ -10,10 +12,9 @@ body {
   margin-right: auto;
   display: flex;
   flex-direction: row;
-  background-color: colors.$light-bg;
 
   &__aside {
-    width: 30%;
+    width: 25%;
     max-height: 100vh;
     padding: 30px 15px;
     position: sticky;

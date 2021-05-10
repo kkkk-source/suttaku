@@ -14,11 +14,8 @@
 
   &__active &__icon,
   &__active &__label {
-    color: colors.$dark-blue;
-  }
-
-  &__itemSelected &__label {
     font-weight: 700;
+    color: var(--text-900);
   }
 
   &__link {
@@ -30,14 +27,14 @@
   &__icon {
     width: funcs.rem(20px);
     height: funcs.rem(20px);
-    margin-right: funcs.rem(40px);
-    color: colors.$gray-100;
+    margin-right: funcs.rem(60px);
+    color: var(--text-200);
     stroke-width: 1.35;
   }
 
   &__label {
     font-weight: 400;
-    color: colors.$gray-100;
+    color: var(--text-200);
     text-transform: capitalize;
     font-size: fonts.$size-sm;
   }
