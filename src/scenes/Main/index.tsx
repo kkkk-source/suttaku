@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Route, HashRouter } from 'react-router-dom';
 import Details from 'components/Details';
 import Menu from 'components/Menu';
+import Footer from 'components/Footer';
 import ThemeSwitcher from 'components/ThemeSwitcher';
 import About from 'pages/About';
 import Home from 'pages/Home';
@@ -30,6 +31,7 @@ function Main(): JSX.Element {
                 path='/about' 
                 component={About} 
               />
+              <Footer />
             </div>
           </HashRouter>
         </main>
