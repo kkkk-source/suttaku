@@ -12,6 +12,7 @@ $green: #48ea8b;
 }
 
 .label {
+  margin-left: funcs.rem(20px);
   font-weight: 400;
   color: var(--text-200);
 }
@@ -29,7 +30,6 @@ $green: #48ea8b;
   background: $red;
   box-shadow: 0 8px 16px -1px rgba($red, .2);
   transition: all .3s ease;
-  margin-right: funcs.rem(20px);
 
   &:before,
   &:after {
