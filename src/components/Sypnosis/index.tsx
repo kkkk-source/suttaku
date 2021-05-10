@@ -1,4 +1,3 @@
-import { useAppSelector } from 'app/hooks';
 import Category from 'components/Category';
 import ClockSVG from 'components/svg/ClockSVG';
 import style from './Sypnosis.module.scss';
@@ -12,10 +11,8 @@ export interface SypnosisProps {
 }
 
 function Sypnosis({ title, subtitle, imgUrl, time, categories }: SypnosisProps): JSX.Element {
-  const theme = useAppSelector(state => state.theme.value);
-
   return (
-    <article className={`${theme === 'dark' ? style.sypnosisDark : style.sypnosisLight } ${style.sypnosis}`}>
+    <article className={style.sypnosis}>
       <Header
         url={imgUrl} 
         alt={title} 

@@ -1,14 +1,13 @@
 @use '../../styles/abstracts/fonts';
 @use '../../styles/abstracts/funcs';
 @use '../../styles/abstracts/radii';
-@use '../../styles/abstracts/colors';
 @use '../../styles/abstracts/shadows';
 
 .about {
   max-width: funcs.rem(690px);
   padding: funcs.rem(30px) funcs.rem(15px);
   border-radius: radii.$corner;
-  background-color: colors.$light-fg;
+  background-color: var(--color-fg);
   box-shadow: shadows.$normal;
 
   &__resume {
@@ -18,7 +17,7 @@
   &__title {
     font-weight: 700;
     font-size: fonts.$size-lg;
-    color: colors.$gray-700;
+    color: var(--text-800);
   }
 
   &__titleLink {
@@ -29,7 +28,7 @@
   &__subtitle {
     line-height: 1.5;
     font-weight: 400;
-    color: colors.$gray-200;
+    color: var(--text-300);
     font-size: fonts.$size-md;
   }
 
@@ -37,14 +36,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: colors.$gray-100;
+    color: var(--text-200);
   }
 
   &__svg {
     width: funcs.rem(20px);
     height: funcs.rem(20px);
     margin-right: funcs.rem(15px);
-    color: colors.$gray-100;
+    color: var(--text-200);
   }
 
   &__time {
@@ -56,11 +55,11 @@
     font-size: fonts.$size-sm;
     line-height: 1.5;
     text-align: left;
-    color: colors.$gray-700;
+    color: var(--text-800);
   }
 
   &__list {
-    color: colors.$gray-200;
+    color: var(--text-300);
   
     li {
       margin-bottom: funcs.rem(10px);
@@ -78,33 +77,5 @@
 
   &__resume, &__title, &__subtitle, &__footer {
     width: 100%;
-  }
-}
-
-.aboutDark {
-  background-color: colors.$dark-fg;
-
-  .about__title {
-    color: colors.$white-900;
-  }
-
-  .about__subtitle {
-    color: colors.$white-700;
-  }
-
-  .about__footer {
-    color: colors.$gray-100;
-  }
-
-  .about__svg {
-    color: colors.$gray-100;
-  }
-
-  .about__copy {
-    color: colors.$white-700;
-  }
-
-  .about__list {
-    color: colors.$white-400;
   }
 }

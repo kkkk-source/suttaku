@@ -1,0 +1,125 @@
+@use '../../styles/abstracts/funcs';
+
+$red: #ff4651;
+$green: #48ea8b;
+
+.themeSwitcher {
+  display: flex;
+  align-items: center;
+  margin-top: funcs.rem(30px);
+  position: absolute;
+  bottom: 50px;
+}
+
+.label {
+  font-weight: 400;
+  color: var(--text-200);
+}
+
+.switch {
+  cursor: pointer;
+}
+
+.span {
+  width: 58px;
+  height: 28px;
+  display: block;
+  position: relative;
+  border-radius: 40px;
+  background: $red;
+  box-shadow: 0 8px 16px -1px rgba($red, .2);
+  transition: all .3s ease;
+  margin-right: funcs.rem(20px);
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    transition: all .3s ease;
+  }
+
+  &:before {
+    top: 4px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+  }
+
+  &:after {
+    top: 6px;
+    left: 43px;
+    width: 6px;
+    height: 15px;
+    border-radius: 40%;
+    transform-origin: 50% 50%;
+    background-color: #fff;
+    opacity: 0;
+  }
+
+  &:active {
+    transform: scale(.92);
+  }
+}
+
+.input {
+  display: none;
+  &:checked {
+    & + .span {
+      background: $green;
+      box-shadow: 0 8px 16px -1px rgba($green, .2);
+      &:before {
+        width: 0px;
+        border-radius: 3px;
+        margin-left: 38px;
+        border-width: 3px;
+        background: #fff;
+      }
+      &:after {
+        animation: blobChecked .35s linear forwards .2s;
+      }
+    }
+  }
+  &:not(:checked) {
+    & + .span {
+      &:before {
+        animation: blob .85s linear forwards .2s;
+      }
+    }
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.12, .94);
+  }
+  60% {
+    transform: scale(.96, 1.06);
+  }
+}
+
+@keyframes blobChecked {
+  0% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  30% {
+    transform: scaleX(1.44);
+  }
+  70% {
+    transform: scaleX(1.18);
+  }
+  50%, 99% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
