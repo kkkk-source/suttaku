@@ -1,40 +1,40 @@
 import { NavLink } from 'react-router-dom';
-import AboutSVG from 'components/svg/AboutSVG';
 import HomeSVG from 'components/svg/HomeSVG';
+import AboutSVG from 'components/svg/AboutSVG';
 import style from './Menu.module.scss';
 
-function Menu(): JSX.Element {
+export default function Menu(): JSX.Element {
   return (
-    <ol className={style.menu}>
-      <li className={style.menu__item}>
-        <NavLink 
-          className={style.menu__link} 
-          activeClassName={style.menu__active} 
-          exact to='/'
-        >
-          <Home />
-        </NavLink>
-      </li>
-      <li className={style.menu__item}>
-        <NavLink 
-          className={style.menu__link} 
-          activeClassName={style.menu__active} 
-          to='/about'
-        >
-          <About />
-        </NavLink>
-      </li>
-    </ol>
+    <ul className={style.menu}>
+      {MENU_ITEMS}
+    </ul>
+  );
+};
+
+const MENU_ITEMS: Array<JSX.Element> = [
+  <MenuItem to={'/'} children={<Home />} />,
+  <MenuItem to={'/about'} children={<About />} />,
+];
+
+function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.Element {
+  return (
+    <li>
+      <NavLink 
+        exact 
+        to={to}
+        activeClassName={style.menu__active}
+      >
+        {children}
+      </NavLink>
+    </li>
   );
 };
 
 function Home(): JSX.Element {
   return (
     <>
-      <HomeSVG className={style.menu__icon} />
-      <span className={style.menu__label}>
-        Home
-      </span>
+      <HomeSVG className={''} />
+      <span>Home</span>
     </>
   );
 };
@@ -42,12 +42,8 @@ function Home(): JSX.Element {
 function About(): JSX.Element {
   return (
     <>
-      <AboutSVG className={style.menu__icon} />
-      <span className={style.menu__label}>
-        About
-      </span>
+      <AboutSVG className={''} />
+      <span>About</span>
     </>
   );
 };
-
-export default Menu;
