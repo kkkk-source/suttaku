@@ -14,20 +14,20 @@
     margin-bottom: funcs.rem(20px);
   }
 
-  &__copyright {
+  div {
     font-weight: 700;
     font-size: fonts.$size-xs;
     color: var(--text-900);
     margin-bottom: funcs.rem(10px);
   }
 
-  &__copy {
+  p {
     margin: 0;
     font-size: fonts.$size-xs;
     color: var(--text-200);
   }
 
-  &__link {
+  a {
     text-decoration: none;
     color: var(--text-200);
   }
