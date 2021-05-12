@@ -1,31 +1,23 @@
-import style from './Details.module.scss';
+import styles from './Details.module.scss';
 
-function Details(): JSX.Element {
+export default function Details(): JSX.Element {
   return (
-    <div className={style.details}>
-      <figure className={style.details__figure}>
+    <div className={styles.details}>
+      <figure>
         <img 
-          className={style.details__avatar} 
           src="https://avatars.githubusercontent.com/u/68973000?v=4" 
-          alt="" 
+          alt="Avatar" 
         />
-        <span className={style.details__emoji}>
-          🍥
-        </span>
+        <span>🍥</span>
       </figure>
-      <h1 className={style.details__title}>
-        <a 
-          href="/"
-          className={style.details__link}
-        >
+      <h1>
+        <a href="/#">
           Example Site
         </a>
       </h1>
-      <p className={style.details__copy}>
+      <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </p>
     </div>
   );
 };
-
-export default Details;
