@@ -6,24 +6,25 @@
   padding: 0;
   list-style: none;
 
-  &__item {
+  li {
     padding: funcs.rem(10px) 0;
     margin-bottom: funcs.rem(15px);
   }
 
-  &__active &__icon,
-  &__active &__label {
-    font-weight: 700;
-    color: var(--text-900);
-  }
-
-  &__link {
+  a {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
   }
 
-  &__icon {
+  span {
+    font-weight: 400;
+    color: var(--text-200);
+    text-transform: capitalize;
+    font-size: fonts.$size-sm;
+  }
+
+  svg {
     width: funcs.rem(20px);
     height: funcs.rem(20px);
     margin-right: funcs.rem(60px);
@@ -31,10 +32,9 @@
     stroke-width: 1.35;
   }
 
-  &__label {
-    font-weight: 400;
-    color: var(--text-200);
-    text-transform: capitalize;
-    font-size: fonts.$size-sm;
+  &__active svg,
+  &__active span {
+    font-weight: 700;
+    color: var(--text-900);
   }
 }
