@@ -11,9 +11,10 @@ const COLORS: { [categoryName: string]: string | undefined } = {
 export default function Category({ name }: { name: string }): JSX.Element {
   return (
     <a 
-      href="#"
+      href="/#"
       style={{ backgroundColor: COLORS[name] }} 
       className={style.category} 
+      rel="noreferrer"
     >
       {name}
     </a>
