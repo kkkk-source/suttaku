@@ -8,20 +8,20 @@
   text-align: left;
   margin-bottom: funcs.rem(20px);
 
-  &__figure {
+  figure {
     position: relative;
     width: funcs.rem(120px);
     height: funcs.rem(120px);
     margin: 0 0 funcs.rem(20px);
   }
 
-  &__avatar {
+  img {
     height: 100%;
     border-radius: radii.$circle;
     box-shadow: shadows.$normal;
   }
 
-  &__emoji {
+  span {
     width: funcs.rem(40px);
     height: funcs.rem(40px);
     display: flex;
@@ -35,23 +35,23 @@
     background-color: var(--color-fg);
   }
 
-  &__title {
+  h1 {
     margin: 0 0 funcs.rem(5px);
   }
 
-  &__link {
+  a {
     text-decoration: none;
     color: var(--text-900);
     font-size: funcs.rem(19px);
   }
 
-  &__copy {
+  p {
     margin: 0;
     color: var(--text-200);
     font-size: fonts.$size-sm;
   }
 
-  &, &__avatar {
+  &, img {
     width: 100%;
   }
 }
