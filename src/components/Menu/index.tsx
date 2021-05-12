@@ -12,8 +12,8 @@ export default function Menu(): JSX.Element {
 };
 
 const MENU_ITEMS: Array<JSX.Element> = [
-  <MenuItem to={'/'} children={<Home />} />,
-  <MenuItem to={'/about'} children={<About />} />,
+  <MenuItem key={0} to={'/'} children={<Home />} />,
+  <MenuItem key={1} to={'/about'} children={<About />} />,
 ];
 
 function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.Element {
