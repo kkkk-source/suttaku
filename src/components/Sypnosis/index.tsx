@@ -1,29 +1,39 @@
-import Category from 'components/Category';
 import ClockSVG from 'components/svg/ClockSVG';
-import style from './Sypnosis.module.scss';
+import Category from 'components/Category';
+import styles from './Sypnosis.module.scss';
 
 export interface SypnosisProps {
   title:      string
   subtitle:   string
+  categories: Array<string>
   imgUrl:     string
   time:       string
-  categories: Array<string>
 }
 
-function Sypnosis({ title, subtitle, imgUrl, time, categories }: SypnosisProps): JSX.Element {
+export default function Sypnosis({ 
+  title, 
+  subtitle, 
+  categories,
+  imgUrl, 
+  time, 
+}: SypnosisProps): JSX.Element {
   return (
-    <article className={style.sypnosis}>
+    <article className={styles.sypnosis}>
       <Header
         url={imgUrl} 
         alt={title} 
       />
-      <div className={style.sypnosis__resume}>
-        <Categories categories={categories} />
+      <div>
+        <Categories 
+          categories={categories} 
+        />
         <Resume 
           title={title} 
           subtitle={subtitle} 
         />
-        <Footer time={time} />
+        <Footer 
+          time={time} 
+        />
       </div>
     </article>
   );
@@ -31,11 +41,9 @@ function Sypnosis({ title, subtitle, imgUrl, time, categories }: SypnosisProps):
 
 function Header({ url, alt }: { url: string, alt: string }): JSX.Element {
   return (
-    <header className={style.sypnosis__header}>
-      <a className={style.sypnosis__bannerLink}
-        href="/"
-      >
-        <img className={style.sypnosis__banner}
+    <header>
+      <a href="/#">
+        <img 
           src={url} 
           alt={alt} 
         />
@@ -47,43 +55,25 @@ function Header({ url, alt }: { url: string, alt: string }): JSX.Element {
 function Categories({ categories }: { categories: Array<string> }): JSX.Element {
   const categoryComponents: Array<JSX.Element> = [];
   for (let i = 0; i < categories.length; i++) {
-    categoryComponents.push( <Category key={i} name={categories[i]} />);
+    categoryComponents.push(<Category key={i} name={categories[i]} />);
   }
-
-  return (
-    <ul className={style.sypnosis__categories}>
-      {categoryComponents}
-    </ul>
-  );
+  return <ul>{categoryComponents}</ul>;
 };
 
 function Resume({ title, subtitle }: { title: string, subtitle: string }): JSX.Element {
   return (
     <>
-      <h2 className={style.sypnosis__title}>
-        <a 
-          href="/" 
-          className={style.sypnosis__titleLink}
-        >
-          {title}
-        </a>
-      </h2>
-      <h3 className={style.sypnosis__subtitle}>
-        {subtitle}
-      </h3>
+      <h2><a href="/#">{title}</a></h2>
+      <h3>{subtitle}</h3>
     </>
   );
 };
 
 function Footer({ time }: { time: string }): JSX.Element {
   return (
-    <footer className={style.sypnosis__footer}>
-      <ClockSVG className={style.sypnosis__svg} />
-      <time className={style.sypnosis__time}>
-        {time}
-      </time>
+    <footer>
+      <ClockSVG className={''} />
+      <time>{time}</time>
     </footer>
   );
 };
-
-export default Sypnosis;
