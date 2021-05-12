@@ -10,83 +10,82 @@
   border-radius: radii.$corner;
   background-color: var(--color-fg);
 
-  &__header {
+  header {
     height: funcs.rem(200px);
   }
 
-  &__banner {
+  img {
     object-fit: cover;
   }
 
-  &__bannerLink {
+  header a {
     display: block;
   }
 
-  &__categories {
+  ul {
     padding: 0;
     margin: 0 0 funcs.rem(10px);
   }
 
-  &__resume {
+  div {
     padding: funcs.rem(25px);
   }
 
-  &__title {
+  h2 {
     font-weight: 700;
     font-size: fonts.$size-lg;
-    color: var(--text-800);
   }
 
-  &__titleLink {
-    color: inherit;
+  h2 a {
+    color: var(--text-800);
     text-decoration: none;
   }
 
-  &__subtitle {
+  h3 {
     line-height: 1.5;
     font-weight: 400;
     color: var(--text-300);
     font-size: fonts.$size-md;
   }
 
-  &__footer {
+  footer {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     color: var(--text-200);
   }
 
-  &__svg {
+  svg {
     width: funcs.rem(20px);
     height: funcs.rem(20px);
     margin-right: funcs.rem(15px);
     color: var(--text-200);
   }
 
-  &__time {
+  time {
     font-size: fonts.$size-sm;
   }
 
-  &, &__resume, &__footer {
+  &, div, footer {
     height: auto;
   }
 
-  &__banner, &__bannerLink {
+  img, header a {
     height: 100%;
   }
 
-  &__title, &__subtitle {
+  h2, h3 {
     text-align: left;
     margin: 0 0 funcs.rem(10px);
   }
 
-  &, &__banner, &__bannerLink {
+  &, img, header a {
     border-top-left-radius: radii.$corner;
     border-top-right-radius: radii.$corner;
   }
 
-  &__header, &__resume, &__title, &__subtitle, &__footer, 
-  &__banner, &__bannerLink, &__categories {
+  header, div, h2, h3, footer, 
+  img, header a, ul {
     width: 100%;
   }
 }
