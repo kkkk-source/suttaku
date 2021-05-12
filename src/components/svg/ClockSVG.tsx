@@ -1,4 +1,4 @@
-function ClockSVG({ className }: { className: string }): JSX.Element {
+export default function ClockSVG({ className }: { className: string }): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,5 +18,3 @@ function ClockSVG({ className }: { className: string }): JSX.Element {
     </svg>
   );
 };
-
-export default ClockSVG;
