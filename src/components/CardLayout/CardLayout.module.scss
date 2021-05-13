@@ -1,0 +1,11 @@
+@use '../../styles/abstracts/funcs';
+@use '../../styles/abstracts/radii';
+@use '../../styles/abstracts/shadows';
+
+.cardLayout {
+  margin-bottom: funcs.rem(40px);
+  max-width: funcs.rem(690px);
+  box-shadow: shadows.$normal;
+  border-radius: radii.$corner;
+  background-color: var(--color-fg);
+}
