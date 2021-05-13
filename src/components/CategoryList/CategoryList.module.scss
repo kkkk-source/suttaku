@@ -1,0 +1,62 @@
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/funcs';
+@use '../../styles/abstracts/radii';
+@use '../../styles/abstracts/shadows';
+
+.list {
+  max-width: funcs.rem(690px);
+  padding-bottom: funcs.rem(15px);
+  white-space: nowrap;
+  overflow: auto;
+
+  article:not(:last-child) {
+    margin-right: funcs.rem(20px);
+  }
+
+  article {
+    display: inline-block;
+    overflow: hidden;
+    width: funcs.rem(250px);
+    height: funcs.rem(150px);
+    border-radius: radii.$corner;
+    box-shadow: shadows.$normal;
+    background-color: var(--color-fg);
+    position: relative;
+
+    a {
+      div {
+        width: 100%;
+        height: 100%;
+      }
+
+      > div {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      div + div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: funcs.rem(20px);
+        /*background: rgba(0, 0, 0, 0) linear-gradient(0deg, rgba(114, 78, 58, 0.5) 0%,
+                      rgba(190, 142, 113, 0.75) 100%) repeat scroll 0% 0%;*/
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h3 {
+      margin: 0;
+      color: #ffffff;
+      font-weight: 500;
+      font-size: fonts.$size-md;
+      text-transform: capitalize;
+    }
+  }
+}
