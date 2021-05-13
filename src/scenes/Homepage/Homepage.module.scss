@@ -1,0 +1,24 @@
+@use '../../styles/abstracts/funcs';
+
+.homepage {
+  max-width: funcs.rem(972px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+
+  aside {
+    width: 30%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+
+  main {
+    width: 70%;
+  }
+
+  aside, main {
+    padding: funcs.rem(30px) funcs.rem(15px);
+  }
+
+}
