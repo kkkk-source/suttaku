@@ -1,26 +1,23 @@
-import { SYPNOSIS, SypnosisProps } from '../../mock-sypnosis';
 import Sypnosis from 'components/Sypnosis';
-import style from './Home.module.scss';
+import { SYPNOSIS, SypnosisProps } from 'mock-sypnosis';
 
-function Home(): JSX.Element  {
+export default function Home(): JSX.Element  {
   const sypnosis: Array<SypnosisProps> = SYPNOSIS; 
-  const sypnosisJSXElements: Array<JSX.Element> = [];
+  const sypnosisJsxElements: Array<JSX.Element> = [];
 
   for (let i = 0; i < sypnosis.length; i++) {
-    const syp = sypnosis[i];
-    sypnosisJSXElements.push(
-      <Sypnosis key={i} 
-        imgUrl={syp.imgUrl} title={syp.title} 
-        subtitle={syp.subtitle} time={syp.time} categories={syp.categories}
+    const resume = sypnosis[i];
+    sypnosisJsxElements.push(
+      <Sypnosis 
+        key={i} 
+        imgUrl={resume.imgUrl} 
+        categories={resume.categories}
+        title={resume.title} 
+        subtitle={resume.subtitle} 
+        time={resume.time} 
       />
     );
   }
 
-  return (
-    <div className={style.home}>
-      {sypnosisJSXElements}
-    </div>
-  );
+  return <div>{sypnosisJsxElements}</div>;
 };
-
-export default Home;
