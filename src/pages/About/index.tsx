@@ -13,7 +13,7 @@ export default function About(): JSX.Element {
           Hugo, the world's fastest framework for building websites
         </h3>
         <div>
-          <ClockSVG className={''} />
+          <ClockSVG />
           <time>Feb 28, 2019</time>
         </div>
         <p>

@@ -33,7 +33,7 @@ function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.
 function Home(): JSX.Element {
   return (
     <>
-      <HomeSVG className={''} />
+      <HomeSVG />
       <span>Home</span>
     </>
   );
@@ -42,7 +42,7 @@ function Home(): JSX.Element {
 function About(): JSX.Element {
   return (
     <>
-      <AboutSVG className={''} />
+      <AboutSVG />
       <span>About</span>
     </>
   );

@@ -75,7 +75,7 @@ function Resume({ title, subtitle }: { title: string, subtitle: string }): JSX.E
 function Footer({ time }: { time: string }): JSX.Element {
   return (
     <footer>
-      <ClockSVG className={''} />
+      <ClockSVG />
       <time>{time}</time>
     </footer>
   );
