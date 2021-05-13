@@ -4,6 +4,7 @@ import Details from 'components/Details';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
 import ThemeSwitcher from 'components/ThemeSwitcher';
+import Archives from 'pages/Archives';
 import About from 'pages/About';
 import Home from 'pages/Home';
 import styles from './Homepage.module.scss';
@@ -34,6 +35,10 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
           <Route 
             path='/about' 
             component={About} 
+          />
+          <Route 
+            path='/archives' 
+            component={Archives} 
           />
           <Footer />
         </main>
