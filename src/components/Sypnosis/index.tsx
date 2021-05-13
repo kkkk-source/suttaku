@@ -1,6 +1,6 @@
 import CardLayout from 'components/CardLayout';
+import CategoryLink from 'components/CategoryLink';
 import ClockSVG from 'components/svg/ClockSVG';
-import Category from 'components/Category';
 import styles from './Sypnosis.module.scss';
 
 export interface SypnosisProps {
@@ -26,7 +26,7 @@ export default function Sypnosis({
           alt={title} 
         />
         <div>
-          <Categories 
+          <CategoryLinkList
             categories={categories} 
           />
           <Resume 
@@ -55,12 +55,12 @@ function Header({ url, alt }: { url: string, alt: string }): JSX.Element {
   );
 };
 
-function Categories({ categories }: { categories: Array<string> }): JSX.Element {
-  const categoryComponents: Array<JSX.Element> = [];
+function CategoryLinkList({ categories }: { categories: Array<string> }): JSX.Element {
+  const categoryElements: Array<JSX.Element> = [];
   for (let i = 0; i < categories.length; i++) {
-    categoryComponents.push(<Category key={i} name={categories[i]} />);
+    categoryElements.push(<CategoryLink key={i} name={categories[i]} />);
   }
-  return <ul>{categoryComponents}</ul>;
+  return <ul>{categoryElements}</ul>;
 };
 
 function Resume({ title, subtitle }: { title: string, subtitle: string }): JSX.Element {

@@ -1,4 +1,4 @@
-import style from './Category.module.scss';
+import styles from './CategoryLink.module.scss';
 
 // key - category name; value - hexadecimal code color
 const COLORS: { [categoryName: string]: string | undefined } = {
@@ -8,12 +8,12 @@ const COLORS: { [categoryName: string]: string | undefined } = {
   test:   '#df7988',
 };
 
-export default function Category({ name }: { name: string }): JSX.Element {
+export default function CategoryLink({ name }: { name: string }): JSX.Element {
   return (
     <a 
       href="/#"
       style={{ backgroundColor: COLORS[name] }} 
-      className={style.category} 
+      className={styles.category} 
       rel="noreferrer"
     >
       {name}
