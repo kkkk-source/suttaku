@@ -1,3 +1,4 @@
+import CardLayout from 'components/CardLayout';
 import ClockSVG from 'components/svg/ClockSVG';
 import Category from 'components/Category';
 import styles from './Sypnosis.module.scss';
@@ -18,24 +19,26 @@ export default function Sypnosis({
   time, 
 }: SypnosisProps): JSX.Element {
   return (
-    <article className={styles.sypnosis}>
-      <Header
-        url={imgUrl} 
-        alt={title} 
-      />
-      <div>
-        <Categories 
-          categories={categories} 
+    <CardLayout>
+      <div className={styles.sypnosis}>
+        <Header
+          url={imgUrl} 
+          alt={title} 
         />
-        <Resume 
-          title={title} 
-          subtitle={subtitle} 
-        />
-        <Footer 
-          time={time} 
-        />
+        <div>
+          <Categories 
+            categories={categories} 
+          />
+          <Resume 
+            title={title} 
+            subtitle={subtitle} 
+          />
+          <Footer 
+            time={time} 
+          />
+        </div>
       </div>
-    </article>
+    </CardLayout>
   );
 };
 

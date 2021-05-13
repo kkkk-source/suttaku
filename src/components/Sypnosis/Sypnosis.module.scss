@@ -4,11 +4,6 @@
 @use '../../styles/abstracts/shadows';
 
 .sypnosis {
-  margin-bottom: funcs.rem(40px);
-  max-width: funcs.rem(690px);
-  box-shadow: shadows.$normal;
-  border-radius: radii.$corner;
-  background-color: var(--color-fg);
 
   header {
     height: funcs.rem(200px);
