@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import HomeSVG from 'components/svg/HomeSVG';
+import ArchiveSVG from 'components/svg/ArchiveSVG';
 import AboutSVG from 'components/svg/AboutSVG';
+import HomeSVG from 'components/svg/HomeSVG';
 import style from './Menu.module.scss';
 
 export default function Menu(): JSX.Element {
@@ -14,6 +15,7 @@ export default function Menu(): JSX.Element {
 const MENU_ITEMS: Array<JSX.Element> = [
   <MenuItem key={0} to={'/'} children={<Home />} />,
   <MenuItem key={1} to={'/about'} children={<About />} />,
+  <MenuItem key={2} to={'/archives'} children={<Archives />} />,
 ];
 
 function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.Element {
@@ -44,6 +46,15 @@ function About(): JSX.Element {
     <>
       <AboutSVG />
       <span>About</span>
+    </>
+  );
+};
+
+function Archives(): JSX.Element {
+  return (
+    <>
+      <ArchiveSVG />
+      <span>Archives</span>
     </>
   );
 };
