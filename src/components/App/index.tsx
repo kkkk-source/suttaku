@@ -1,13 +1,14 @@
-import Main from 'scenes/Main';
-import './App.scss';
-import 'theme.scss';
+import { useState } from 'react';
+import Homepage from 'scenes/Homepage';
+import styles from './App.module.scss';
+import 'styles/theme.scss';
 
-function App(): JSX.Element {
+export default function App(): JSX.Element {
+  const [theme, setTheme] = useState<string>('light');
+
   return (
-    <>
-      <Main />
-    </>
+    <div className={`${styles.app} ${theme}`}>
+      <Homepage theme={theme} setTheme={setTheme} />
+    </div>
   );
 };
-
-export default App;
