@@ -1,10 +1,10 @@
-import CardLayout from 'components/CardLayout';
+import RoundedContainer from 'components/RoundedContainer';
 import ClockSVG from 'components/svg/ClockSVG';
 import styles from './About.module.scss';
 
 export default function About(): JSX.Element {
   return (
-    <CardLayout>
+    <RoundedContainer>
       <div className={styles.about}>
         <h2>
           <a href="/#">About</a>
@@ -25,6 +25,6 @@ export default function About(): JSX.Element {
           support for Sass SCSS workflows.
         </p>
       </div>
-    </CardLayout>
+    </RoundedContainer>
   );
 };

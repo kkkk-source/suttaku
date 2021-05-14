@@ -1,4 +1,4 @@
-import CardLayout from 'components/CardLayout';
+import RoundedContainer from 'components/RoundedContainer';
 import CategoryLink from 'components/CategoryLink';
 import ClockSVG from 'components/svg/ClockSVG';
 import styles from './Sypnosis.module.scss';
@@ -19,7 +19,7 @@ export default function Sypnosis({
   time, 
 }: SypnosisProps): JSX.Element {
   return (
-    <CardLayout>
+    <RoundedContainer>
       <div className={styles.sypnosis}>
         <Header
           url={imgUrl} 
@@ -38,7 +38,7 @@ export default function Sypnosis({
           />
         </div>
       </div>
-    </CardLayout>
+    </RoundedContainer>
   );
 };
 
