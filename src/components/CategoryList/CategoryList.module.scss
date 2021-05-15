@@ -33,6 +33,10 @@
         position: absolute;
         left: 0;
         top: 0;
+
+        /* TODO: load linear-gradient dynamically */
+        background: rgba(0, 0, 0, 0) linear-gradient(0deg, rgba(114, 78, 58, 0.5) 0%,
+                    rgba(190, 142, 113, 0.75) 100%) repeat scroll 0% 0%;
       }
 
       div + div {
@@ -40,8 +44,6 @@
         flex-direction: column;
         justify-content: flex-end;
         padding: funcs.rem(20px);
-        /*background: rgba(0, 0, 0, 0) linear-gradient(0deg, rgba(114, 78, 58, 0.5) 0%,
-                      rgba(190, 142, 113, 0.75) 100%) repeat scroll 0% 0%;*/
       }
     }
 
