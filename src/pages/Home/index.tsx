@@ -1,14 +1,14 @@
-import Sypnosis from 'components/Sypnosis';
-import { SYPNOSIS, SypnosisProps } from 'mock-sypnosis';
+import PostSummary from 'components/PostSummary';
+import { SYPNOSIS, PostSummaryProps } from 'mock-sypnosis';
 
 export default function Home(): JSX.Element  {
-  const sypnosis: Array<SypnosisProps> = SYPNOSIS; 
+  const sypnosis: Array<PostSummaryProps> = SYPNOSIS; 
   const sypnosisJsxElements: Array<JSX.Element> = [];
 
   for (let i = 0; i < sypnosis.length; i++) {
     const resume = sypnosis[i];
     sypnosisJsxElements.push(
-      <Sypnosis 
+      <PostSummary 
         key={i} 
         imgUrl={resume.imgUrl} 
         categories={resume.categories}
