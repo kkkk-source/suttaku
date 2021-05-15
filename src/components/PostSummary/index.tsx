@@ -47,12 +47,10 @@ function Header({ url, alt }: { url: string, alt: string }): JSX.Element {
   return (
     <header>
       <Link to={'posts/1'} >
-        <a href="/#">
-          <img 
-            src={url} 
-            alt={alt} 
-          />
-        </a>
+        <img 
+          src={url} 
+          alt={alt} 
+        />
       </Link>
     </header>
   );
