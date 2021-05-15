@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Route, HashRouter } from 'react-router-dom';
-import Details from 'components/Details';
+import { Route, HashRouter, Switch } from 'react-router-dom';
+import Post from 'components/Post';
+import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
 import ThemeSwitcher from 'components/ThemeSwitcher';
@@ -19,7 +20,7 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
     <section className={styles.homepage}>
       <HashRouter>
         <aside>
-          <Details />
+          <SiteFact />
           <Menu />
           <ThemeSwitcher 
             theme={theme} 
@@ -27,19 +28,25 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
           />
         </aside>
         <main>
-          <Route 
-            exact 
-            path='/' 
-            component={Home} 
-          />
-          <Route 
-            path='/about' 
-            component={About} 
-          />
-          <Route 
-            path='/archives' 
-            component={Archives} 
-          />
+          <Switch>
+            <Route 
+              exact 
+              path='/' 
+              component={Home} 
+            />
+            <Route 
+              path='/about' 
+              component={About} 
+            />
+            <Route 
+              path='/archives' 
+              component={Archives} 
+            />
+            <Route
+              path='/posts/:id'
+              component={Post}
+            />
+          </Switch>
           <Footer />
         </main>
       </HashRouter>
