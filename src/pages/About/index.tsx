@@ -1,10 +1,10 @@
-import RoundedContainer from 'components/RoundedContainer';
+import RoundBox from 'components/RoundBox';
 import ClockSVG from 'components/svg/ClockSVG';
 import styles from './About.module.scss';
 
 export default function About(): JSX.Element {
   return (
-    <RoundedContainer>
+    <RoundBox>
       <div className={styles.about}>
         <h2>
           <a href="/#">About</a>
@@ -25,6 +25,6 @@ export default function About(): JSX.Element {
           support for Sass SCSS workflows.
         </p>
       </div>
-    </RoundedContainer>
+    </RoundBox>
   );
 };

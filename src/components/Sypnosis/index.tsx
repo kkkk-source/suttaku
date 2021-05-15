@@ -1,4 +1,4 @@
-import RoundedContainer from 'components/RoundedContainer';
+import RoundBox from 'components/RoundBox';
 import CategoryLink from 'components/CategoryLink';
 import ClockSVG from 'components/svg/ClockSVG';
 import styles from './Sypnosis.module.scss';
@@ -19,7 +19,7 @@ export default function Sypnosis({
   time, 
 }: SypnosisProps): JSX.Element {
   return (
-    <RoundedContainer>
+    <RoundBox>
       <div className={styles.sypnosis}>
         <Header
           url={imgUrl} 
@@ -38,7 +38,7 @@ export default function Sypnosis({
           />
         </div>
       </div>
-    </RoundedContainer>
+    </RoundBox>
   );
 };
 
