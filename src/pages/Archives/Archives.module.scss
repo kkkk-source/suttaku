@@ -1,0 +1,13 @@
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/funcs';
+
+.archives {
+  padding: funcs.rem(25px);
+
+  h2 {
+    margin: 0 0 funcs.rem(10px);
+    font-weight: 700;
+    color: var(--text-800);
+    font-size: fonts.$size-lg;
+  }
+}
