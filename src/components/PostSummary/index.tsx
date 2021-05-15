@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import RoundBox from 'components/RoundBox';
 import CategoryLink from 'components/CategoryLink';
 import ClockSVG from 'components/svg/ClockSVG';
-import styles from './Sypnosis.module.scss';
+import styles from './PostSummary.module.scss';
 
-export interface SypnosisProps {
+export interface PostSummaryProps {
   title:      string
   subtitle:   string
   categories: Array<string>
@@ -11,16 +12,16 @@ export interface SypnosisProps {
   time:       string
 }
 
-export default function Sypnosis({ 
+export default function PostSummary({ 
   title, 
   subtitle, 
   categories,
   imgUrl, 
   time, 
-}: SypnosisProps): JSX.Element {
+}: PostSummaryProps): JSX.Element {
   return (
     <RoundBox>
-      <div className={styles.sypnosis}>
+      <div className={styles.postSummary}>
         <Header
           url={imgUrl} 
           alt={title} 
@@ -45,12 +46,14 @@ export default function Sypnosis({
 function Header({ url, alt }: { url: string, alt: string }): JSX.Element {
   return (
     <header>
-      <a href="/#">
-        <img 
-          src={url} 
-          alt={alt} 
-        />
-      </a>
+      <Link to={'posts/1'} >
+        <a href="/#">
+          <img 
+            src={url} 
+            alt={alt} 
+          />
+        </a>
+      </Link>
     </header>
   );
 };
