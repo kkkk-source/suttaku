@@ -1,0 +1,57 @@
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/funcs';
+@use '../../styles/abstracts/radii';
+@use '../../styles/abstracts/shadows';
+
+.siteFact {
+  height: auto;
+  text-align: left;
+  margin-bottom: funcs.rem(20px);
+
+  figure {
+    position: relative;
+    width: funcs.rem(120px);
+    height: funcs.rem(120px);
+    margin: 0 0 funcs.rem(20px);
+  }
+
+  img {
+    height: 100%;
+    border-radius: radii.$circle;
+    box-shadow: shadows.$normal;
+  }
+
+  span {
+    width: funcs.rem(40px);
+    height: funcs.rem(40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: radii.$circle;
+    box-shadow: shadows.$circle;
+    background-color: var(--color-fg);
+  }
+
+  h1 {
+    margin: 0 0 funcs.rem(5px);
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-900);
+    font-size: funcs.rem(19px);
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-200);
+    font-size: fonts.$size-sm;
+  }
+
+  &, img {
+    width: 100%;
+  }
+}
