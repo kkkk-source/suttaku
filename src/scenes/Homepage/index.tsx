@@ -5,9 +5,9 @@ import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
 import ThemeSwitcher from 'components/ThemeSwitcher';
-import Archives from 'pages/Archives';
 import About from 'pages/About';
-import Home from 'pages/Home';
+import Archives from 'pages/Archives';
+import Posts from 'pages/Posts';
 import styles from './Homepage.module.scss';
 
 interface HomepageProps {
@@ -32,7 +32,7 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
             <Route 
               exact 
               path='/' 
-              component={Home} 
+              component={Posts} 
             />
             <Route 
               path='/about' 
