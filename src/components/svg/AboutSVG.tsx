@@ -13,8 +13,8 @@ export default function AboutSVG({ className }: { className?: string }): JSX.Ele
       className={className}
     >
       <path d="M0 0h24v24H0z" stroke="none" />
-      <circle cx={12} cy={12} r={9} />
-      <path d="M12 7v5l3 3" />
+      <circle cx={12} cy={7} r={4} />
+      <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
     </svg>
   )
 };
