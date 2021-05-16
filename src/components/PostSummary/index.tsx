@@ -24,7 +24,7 @@ export default function PostSummary({
       <div className={styles.postSummary}>
         <Header
           url={imgUrl} 
-          alt={title} 
+          title={title} 
         />
         <div>
           <CategoryLinkList
@@ -43,13 +43,17 @@ export default function PostSummary({
   );
 };
 
-function Header({ url, alt }: { url: string, alt: string }): JSX.Element {
+function Header({ url, title }: { url: string, title: string }): JSX.Element {
+  const fmt = (title: string) => title.trim().replace(/\s+/g, '-').toLowerCase();
+
   return (
     <header>
-      <Link to={'posts/1'} >
+      <Link 
+        to={`p/${fmt(title)}`} 
+      >
         <img 
           src={url} 
-          alt={alt} 
+          alt={title} 
         />
       </Link>
     </header>
