@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { getPostByTitle } from 'services/PostService';
+import { getBlogPostByTitle } from 'services/PostService';
 import RoundBox from 'components/RoundBox';
 
-export default function Post() {
+export default function BlogPost() {
   const { title } = useParams<{ title: string }>();
-  const post = getPostByTitle(title);
+  const post = getBlogPostByTitle(title);
   return (
     <RoundBox>
       <div>
