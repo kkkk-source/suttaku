@@ -1,35 +1,52 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, Component } from 'react';
 import style from './ThemeSwitcher.module.scss';
 
-interface ThemeSwitcherProps {
+type Props = {
   theme:    string
   setTheme: Dispatch<SetStateAction<string>>
-}
+};
 
-function ThemeSwitcher(themeSwitcherProps: ThemeSwitcherProps): JSX.Element {
-  const onClickHandler = (): void => {
+type State = { 
+  active: boolean 
+};
+
+class ThemeSwitcher extends Component<Props, State> {
+  state = { active: (this.props.theme === 'dark') };
+
+  onClickHandler = () => {
     // Toggle between dark and light themes
-    const newTheme = themeSwitcherProps.theme === 'dark' ? 'light' : 'dark';
-    themeSwitcherProps.setTheme(newTheme);
+    const newTheme = this.props.theme === 'dark' ? 'light' : 'dark';
+    this.props.setTheme(newTheme);
+
+    if (newTheme === 'dark') {
+      this.setState(() => ({ active: true }));
+    } else {
+      this.setState(() => ({ active: false }));
+    }
   };
 
-  return (
-    <div className={style.themeSwitcher}>
-      <label className={style.switch}>
-        <input 
-          type="checkbox"
-          className={style.input}
-        />
+  render() {
+    return (
+      <div className={style.themeSwitcher}>
+        <label className={style.switch}>
+          <input 
+            type="checkbox"
+            className={style.input}
+          />
+          <span 
+            onClick={() => this.onClickHandler()}
+            className={style.span}
+          ></span>
+        </label>
         <span 
-          onClick={() => onClickHandler()}
-          className={style.span}
-        ></span>
-      </label>
-      <span className={style.label}>
-        Dark Mode
-      </span>
-    </div>
-  );
+          className={`${style.label} 
+            ${this.state.active ? style.labelActive : '' }`}
+        >
+          Dark Mode
+        </span>
+      </div>
+    );
+  }
 }
 
 export default ThemeSwitcher;

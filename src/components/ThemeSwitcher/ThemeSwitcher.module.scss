@@ -1,7 +1,9 @@
+@use '../../styles/abstracts/fonts';
 @use '../../styles/abstracts/funcs';
 
 $red: #ff4651;
 $green: #48ea8b;
+
 
 .themeSwitcher {
   display: flex;
@@ -15,6 +17,12 @@ $green: #48ea8b;
   margin-left: funcs.rem(20px);
   font-weight: 400;
   color: var(--text-200);
+  font-size: fonts.$size-xs;
+}
+
+.labelActive{
+  font-weight: 700;
+  color: var(--text-900);
 }
 
 .switch {
