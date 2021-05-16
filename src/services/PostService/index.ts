@@ -1,4 +1,4 @@
-export interface PostSummaryResponse {
+export interface BlogPostShortResponse {
   id:         number
   imgUrl:     string
   title:      string
@@ -7,7 +7,7 @@ export interface PostSummaryResponse {
   categories: Array<string>
 }
 
-const postsSummary: Array<PostSummaryResponse> = [
+const postsSummary: Array<BlogPostShortResponse> = [
   { 
     id: 0,
     imgUrl: 'https://d33wubrfki0l68.cloudfront.net/e7b81c3834dbdf86da47bd55be8f171a2faff64d/c9cf2/p/test-chinese/helena-hertz-wwzzxldpmog-unsplash_hu45a5e3ad5e058da6a00650ed8fd40bea_15530_800x0_resize_q75_box.jpg', 
@@ -36,11 +36,11 @@ const postsSummary: Array<PostSummaryResponse> = [
 
 const fmt = (title: string) => title.trim().replace(/\s+/g, '-').toLowerCase();
 
-export function getPostSummary(): Array<PostSummaryResponse> {
+export function getBlogPostShort(): Array<BlogPostShortResponse> {
   return postsSummary;
 }
 
-export function getPostByTitle(title: string): PostSummaryResponse | undefined {
+export function getBlogPostByTitle(title: string): BlogPostShortResponse | undefined {
   for (let i = 0; i < postsSummary.length; i++) {
     if (fmt(postsSummary[i].title) === title) {
       return postsSummary[i];
