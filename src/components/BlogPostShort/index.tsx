@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import RoundBox from 'components/RoundBox';
 import CategoryLink from 'components/CategoryLink';
 import ClockSVG from 'components/svg/ClockSVG';
-import styles from './PostSummary.module.scss';
+import styles from './BlogPostShort.module.scss';
 
-export interface PostSummaryProps {
+export interface BlogPostShortProps {
   title:      string
   subtitle:   string
   categories: Array<string>
@@ -12,16 +12,16 @@ export interface PostSummaryProps {
   time:       string
 }
 
-export default function PostSummary({ 
+export default function BlogPostShort({ 
   title, 
   subtitle, 
   categories,
   imgUrl, 
   time, 
-}: PostSummaryProps): JSX.Element {
+}: BlogPostShortProps): JSX.Element {
   return (
     <RoundBox>
-      <div className={styles.postSummary}>
+      <div className={styles.blogPostShort}>
         <Header
           url={imgUrl} 
           title={title} 
