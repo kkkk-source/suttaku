@@ -43,7 +43,7 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
               component={Archives} 
             />
             <Route
-              path='/posts/:id'
+              path='/p/:title'
               component={Post}
             />
           </Switch>
