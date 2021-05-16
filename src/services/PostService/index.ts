@@ -34,6 +34,17 @@ const postsSummary: Array<PostSummaryResponse> = [
   },
 ];
 
+const fmt = (title: string) => title.trim().replace(/\s+/g, '-').toLowerCase();
+
 export function getPostSummary(): Array<PostSummaryResponse> {
   return postsSummary;
+}
+
+export function getPostByTitle(title: string): PostSummaryResponse | undefined {
+  for (let i = 0; i < postsSummary.length; i++) {
+    if (fmt(postsSummary[i].title) === title) {
+      return postsSummary[i];
+    }
+  }
+  return undefined;
 }
