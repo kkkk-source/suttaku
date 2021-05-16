@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Route, HashRouter, Switch } from 'react-router-dom';
-import Post from 'components/Post';
+import BlogPost from 'components/BlogPost';
 import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
 import ThemeSwitcher from 'components/ThemeSwitcher';
 import About from 'pages/About';
 import Archives from 'pages/Archives';
-import Posts from 'pages/Posts';
+import BlogPosts from 'pages/BlogPosts';
 import styles from './Homepage.module.scss';
 
 interface HomepageProps {
@@ -32,7 +32,7 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
             <Route 
               exact 
               path='/' 
-              component={Posts} 
+              component={BlogPosts} 
             />
             <Route 
               path='/about' 
@@ -44,7 +44,7 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
             />
             <Route
               path='/p/:title'
-              component={Post}
+              component={BlogPost}
             />
           </Switch>
           <Footer />
