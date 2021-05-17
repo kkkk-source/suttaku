@@ -1,0 +1,80 @@
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/funcs';
+@use '../../styles/abstracts/radii';
+@use '../../styles/abstracts/shadows';
+
+.blogPost {
+
+  header {
+    height: funcs.rem(337px);
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0 0 funcs.rem(10px);
+  }
+
+  div {
+    padding: funcs.rem(25px);
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: fonts.$size-lg;
+    color: var(--text-800);
+    text-decoration: none;
+  }
+
+  h3 {
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--text-300);
+    font-size: fonts.$size-md;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--text-200);
+  }
+
+  svg {
+    width: funcs.rem(20px);
+    height: funcs.rem(20px);
+    margin-right: funcs.rem(15px);
+    color: var(--text-200);
+  }
+
+  time {
+    font-size: fonts.$size-sm;
+  }
+
+  &, div, footer {
+    height: auto;
+  }
+
+  img {
+    height: 100%;
+  }
+
+  h2, h3 {
+    text-align: left;
+    margin: 0 0 funcs.rem(10px);
+  }
+
+  &, img {
+    border-top-left-radius: radii.$corner;
+    border-top-right-radius: radii.$corner;
+  }
+
+  header, div, h2, h3, footer, 
+  img, ul {
+    width: 100%;
+  }
+
+}
