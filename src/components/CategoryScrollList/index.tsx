@@ -1,16 +1,16 @@
-import styles from './CategoryList.module.scss';
+import styles from './CategoryScrollList.module.scss';
 
-export default function CategoryList(): JSX.Element {
+export default function CategoryScrollList(): JSX.Element {
   return (
-    <div className={styles.list}>
-      <CategoryCardLink name={'test'} />
-      <CategoryCardLink name={'test'} />
-      <CategoryCardLink name={'test'} />
+    <div className={styles.categoryScrollList}>
+      <Category name={'test'} />
+      <Category name={'test'} />
+      <Category name={'test'} />
     </div>
   );
 }
 
-function CategoryCardLink({ name }: { name: string }): JSX.Element {
+function Category({ name }: { name: string }): JSX.Element {
   return (
     <article>
       <a href="/#">
