@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { toParamTitle } from 'services/FmtService';
 import RoundBox from 'components/RoundBox';
-import CategoryLink from 'components/CategoryLink';
+import CategoryLinkList from 'components/CategoryLinkList';
 import ClockSVG from 'components/svg/ClockSVG';
 import styles from './BlogPostShort.module.scss';
 
@@ -20,12 +20,14 @@ export default function BlogPostShort({
   imgUrl, 
   time, 
 }: BlogPostShortProps): JSX.Element {
+  const paramTitle = toParamTitle(title);
   return (
     <RoundBox>
       <div className={styles.blogPostShort}>
         <Header
           url={imgUrl} 
           title={title} 
+          paramTitle={paramTitle} 
         />
         <div>
           <CategoryLinkList
@@ -34,6 +36,7 @@ export default function BlogPostShort({
           <Resume 
             title={title} 
             subtitle={subtitle} 
+            paramTitle={paramTitle} 
           />
           <Footer 
             time={time} 
@@ -44,12 +47,10 @@ export default function BlogPostShort({
   );
 };
 
-function Header({ url, title }: { url: string, title: string }): JSX.Element {
+function Header({ paramTitle, title, url }: { paramTitle: string, title: string, url: string }): JSX.Element {
   return (
     <header>
-      <Link 
-        to={`p/${toParamTitle(title)}`} 
-      >
+      <Link to={`p/${paramTitle}`}>
         <img 
           src={url} 
           alt={title} 
@@ -59,18 +60,14 @@ function Header({ url, title }: { url: string, title: string }): JSX.Element {
   );
 };
 
-function CategoryLinkList({ categories }: { categories: Array<string> }): JSX.Element {
-  const categoryElements: Array<JSX.Element> = [];
-  for (let i = 0; i < categories.length; i++) {
-    categoryElements.push(<CategoryLink key={i} name={categories[i]} />);
-  }
-  return <ul>{categoryElements}</ul>;
-};
-
-function Resume({ title, subtitle }: { title: string, subtitle: string }): JSX.Element {
+function Resume({ paramTitle, title, subtitle }: { paramTitle: string, title: string, subtitle: string }): JSX.Element {
   return (
     <>
-      <h2><a href="/#">{title}</a></h2>
+      <h2>
+        <Link to={`p/${paramTitle}`}>
+          {title}
+        </Link>
+      </h2>
       <h3>{subtitle}</h3>
     </>
   );
