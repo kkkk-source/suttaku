@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { toParamTitle } from 'services/FmtService';
 import RoundBox from 'components/RoundBox';
 import CategoryLink from 'components/CategoryLink';
 import ClockSVG from 'components/svg/ClockSVG';
@@ -44,12 +45,10 @@ export default function BlogPostShort({
 };
 
 function Header({ url, title }: { url: string, title: string }): JSX.Element {
-  const fmt = (title: string) => title.trim().replace(/\s+/g, '-').toLowerCase();
-
   return (
     <header>
       <Link 
-        to={`p/${fmt(title)}`} 
+        to={`p/${toParamTitle(title)}`} 
       >
         <img 
           src={url} 

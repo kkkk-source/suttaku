@@ -1,3 +1,5 @@
+import { toParamTitle } from 'services/FmtService';
+
 export interface BlogPostShortResponse {
   id:         number
   imgUrl:     string
@@ -34,15 +36,13 @@ const postsSummary: Array<BlogPostShortResponse> = [
   },
 ];
 
-const fmt = (title: string) => title.trim().replace(/\s+/g, '-').toLowerCase();
-
 export function getBlogPostShort(): Array<BlogPostShortResponse> {
   return postsSummary;
 }
 
 export function getBlogPostByTitle(title: string): BlogPostShortResponse | undefined {
   for (let i = 0; i < postsSummary.length; i++) {
-    if (fmt(postsSummary[i].title) === title) {
+    if (toParamTitle(postsSummary[i].title) === title) {
       return postsSummary[i];
     }
   }
