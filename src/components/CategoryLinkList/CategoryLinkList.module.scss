@@ -1,0 +1,19 @@
+@use '../../styles/abstracts/funcs';
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/radii';
+
+.categoryLinkList {
+  padding: 0;
+  margin: 0 0 funcs.rem(10px);
+
+  a {
+    display: inline-block;
+    border-radius: radii.$tag;
+    font-size: fonts.$size-sm;
+    padding: funcs.rem(8px) funcs.rem(16px);
+    margin: 0 funcs.rem(10px) funcs.rem(10px) 0;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+}
