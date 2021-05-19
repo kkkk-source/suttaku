@@ -1,8 +1,8 @@
-import styles from './CategoryScrollList.module.scss';
+import styles from './CategoryList.module.scss';
 
-export default function CategoryScrollList(): JSX.Element {
+export default function CategoryList(): JSX.Element {
   return (
-    <div className={styles.categoryScrollList}>
+    <div className={styles.categoryList}>
       <Category name={'test'} />
       <Category name={'test'} />
       <Category name={'test'} />

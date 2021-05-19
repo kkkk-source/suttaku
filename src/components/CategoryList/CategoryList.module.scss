@@ -3,7 +3,7 @@
 @use '../../styles/abstracts/radii';
 @use '../../styles/abstracts/shadows';
 
-.categoryScrollList {
+.categoryList {
   max-width: funcs.rem(690px);
   padding-bottom: funcs.rem(15px);
   white-space: nowrap;
