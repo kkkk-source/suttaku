@@ -25,8 +25,3 @@
   --scroll-track: hsl(0, 0%, 85%);
   --scroll-track-piece: var(--color-bg);
 }
-
-*::-webkit-scrollbar {
-  width: 10px;
-  background-color: black;
-}
