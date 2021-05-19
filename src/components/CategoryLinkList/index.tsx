@@ -1,3 +1,4 @@
+import { getColorOfCategory } from 'services/CategoryService';
 import styles from './CategoryLinkList.module.scss';
 
 function CategoryLinkList({ categories }: { categories: Array<string> }): JSX.Element {
@@ -19,20 +20,12 @@ function CategoryLink({ name }: { name: string }): JSX.Element {
   return (
     <a 
       href="/#"
-      style={{ backgroundColor: COLORS[name] }} 
+      style={{ backgroundColor: getColorOfCategory(name) }} 
       rel="noreferrer"
     >
       {name}
     </a>
   );
-};
-
-// key - category name; value - hexadecimal code color
-const COLORS: { [categoryName: string]: string | undefined } = {
-  syntax: '#2a9d8f',
-  themes: '#ffb900',
-  试:     '#8ea885',
-  test:   '#df7988',
 };
 
 export default CategoryLinkList;
