@@ -1,11 +1,15 @@
+import { getCaterogies } from 'services/CategoryService';
 import styles from './CategoryList.module.scss';
 
 export default function CategoryList(): JSX.Element {
+  const categories: Array<JSX.Element> = [];
+  for (let name in getCaterogies()) {
+    categories.push(<Category key={name} name={name} />);
+  }
+
   return (
     <div className={styles.categoryList}>
-      <Category name={'test'} />
-      <Category name={'test'} />
-      <Category name={'test'} />
+      {categories}
     </div>
   );
 }
