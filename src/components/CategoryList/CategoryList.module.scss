@@ -9,16 +9,25 @@
   white-space: nowrap;
   overflow: auto;
 
-  /* scrollbar styles for firefox */
+  /* scrollbar styles for Firefox */
   scrollbar-width: thin;
   scrollbar-color: var(--scroll-track) var(--scroll-track-piece);
 
-  /* scrollbar styles for chrome */
-  &::-webkit-scrollbar-track {
+  /* scrollbar styles for Chromium */
+  &::-webkit-scrollbar {
+    height: funcs.rem(7px);
+    border-radius: funcs.rem(10px);
+  }
+
+  &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-track {
+    border-radius: funcs.rem(10px);
+  }
+
+  &::-webkit-scrollbar-thumb {
     background-color: var(--scroll-track);
   }
 
-  &::-webkit-scrollbar-track-piece {
+  &::-webkit-scrollbar-track {
     background-color: var(--scroll-track-piece);
   }
   /**/
