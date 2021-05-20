@@ -7,14 +7,14 @@
   flex-direction: row;
 
   aside {
-    width: 30%;
+    width: 25%;
     height: 100vh;
     position: sticky;
     top: 0;
   }
 
   main {
-    width: 70%;
+    width: 75%;
     padding: funcs.rem(30px) funcs.rem(15px);
   }
 
