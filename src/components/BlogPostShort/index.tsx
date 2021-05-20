@@ -50,7 +50,7 @@ export default function BlogPostShort({
 function Header({ paramTitle, title, url }: { paramTitle: string, title: string, url: string }): JSX.Element {
   return (
     <header>
-      <Link to={`p/${paramTitle}`}>
+      <Link to={`p/${paramTitle}`} onClick={() => window.scrollTo(0, 0)}>
         <img 
           src={url} 
           alt={title} 
@@ -64,7 +64,7 @@ function Resume({ paramTitle, title, subtitle }: { paramTitle: string, title: st
   return (
     <>
       <h2>
-        <Link to={`p/${paramTitle}`}>
+        <Link to={`p/${paramTitle}`} onClick={() => window.scrollTo(0, 0)}>
           {title}
         </Link>
       </h2>
