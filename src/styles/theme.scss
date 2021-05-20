@@ -8,8 +8,8 @@
 
   --deco: #48ea8b;
 
-  --scroll-track: var(--color-fg);
-  --scroll-track-piece: var(--color-bg);
+  --scroll-thumb: var(--color-fg);
+  --scroll-track: var(--color-bg);
 }
 
 .light {
@@ -21,7 +21,7 @@
   --text-200: hsl(0, 0%, 73%);
 
   --deco: #ff4651;
-
-  --scroll-track: hsl(0, 0%, 85%);
-  --scroll-track-piece: var(--color-bg);
+  
+  --scroll-thumb: hsl(0, 0%, 85%);
+  --scroll-track: var(--color-bg);
 }

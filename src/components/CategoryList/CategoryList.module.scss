@@ -12,7 +12,7 @@
 
   /* scrollbar styles for Firefox */
   scrollbar-width: thin;
-  scrollbar-color: var(--scroll-track) var(--scroll-track-piece);
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 
   /* scrollbar styles for Chromium */
   &::-webkit-scrollbar {
@@ -25,11 +25,11 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-track);
+    background-color: var(--scroll-thumb);
   }
 
   &::-webkit-scrollbar-track {
-    background-color: var(--scroll-track-piece);
+    background-color: var(--scroll-track);
   }
   /**/
 
