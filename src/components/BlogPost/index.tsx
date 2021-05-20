@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { fmtDate } from 'services/FmtService';
 import { getBlogPostByTitle } from 'services/PostService';
 import RoundBox from 'components/RoundBox';
 import CategoryLinkList from 'components/CategoryLinkList';
@@ -8,6 +9,7 @@ import styles from './BlogPost.module.scss';
 export default function BlogPost() {
   const { title } = useParams<{ title: string }>();
   const post = getBlogPostByTitle(title);
+  const formatedDate = fmtDate(post!.time);
   return (
     <RoundBox>
       <div className={styles.blogPost}>
@@ -22,7 +24,7 @@ export default function BlogPost() {
           <h3>{post!.subtitle}</h3>
           <footer>
             <ClockSVG />
-            <time>{post!.time}</time>
+            <time>{formatedDate}</time>
           </footer>
         </div>
       </div>
