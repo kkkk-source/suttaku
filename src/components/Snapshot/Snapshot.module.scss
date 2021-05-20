@@ -1,0 +1,32 @@
+@use '../../styles/abstracts/fonts';
+
+.snapshot {
+  width: 100%;
+  background-color: var(--color-fg);
+
+  a {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    text-decoration: none;
+  }
+
+  h4 {
+    margin: 0 0 4px;
+    font-size: fonts.$size-md;
+    color: var(--text-900);
+    text-transform: capitalize;
+  }
+
+  time {
+    color: var(--text-200);
+    font-size: fonts.$size-xs;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+}
