@@ -1,0 +1,37 @@
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/funcs';
+@use '../../styles/abstracts/radii';
+@use '../../styles/abstracts/shadows';
+
+.timelapse {
+  width: 100%;
+  margin-bottom: funcs.rem(40px);
+
+  h3 {
+    color: var(--text-200);
+    font-size: fonts.$size-sm;
+    text-transform: uppercase;
+    margin: 0 0 funcs.rem(10px);
+  }
+
+  section {
+    width: 100%;
+    height: auto;
+    box-shadow: shadows.$normal;
+    border-radius: radii.$corner;
+
+    article:not(:last-child) {
+      border-bottom: 1px solid var(--color-bg);
+    }
+
+    article:first-child {
+      border-top-left-radius: radii.$corner;
+      border-top-right-radius: radii.$corner;
+    }
+
+    article:last-child {
+      border-bottom-left-radius: radii.$corner;
+      border-bottom-right-radius: radii.$corner;
+    }
+  }
+}
