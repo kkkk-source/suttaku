@@ -8,3 +8,7 @@ export function fmtTitle(title: string): string {
 export function fmtDate(date: string) {
   return format(new Date(date), 'MMM dd, yyy');
 }
+
+export function getYearOf(date: string) {
+  return format(new Date(date), 'yyyy');
+}
