@@ -1,5 +1,5 @@
 // key - category name; value - hexadecimal code color
-const CATEGORIES: { [categoryName: string]: { color: string} | undefined } = {
+const CATEGORIES: { [name: string]: { color: string} | undefined } = {
   syntax: { color: '#2a9d8f' },
   themes: { color: '#ffb900' },
   试:     { color: '#8ea885' },
