@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { getColorOfCategory } from 'services/CategoryService';
 import styles from './CategoryLinkList.module.scss';
 
@@ -18,13 +19,12 @@ function CategoryLinkList({ categories }: { categories: Array<string> }): JSX.El
 
 function CategoryLink({ name }: { name: string }): JSX.Element {
   return (
-    <a 
-      href="/#"
+    <Link 
+      to={`/c/${name}`}
       style={{ backgroundColor: getColorOfCategory(name) }} 
-      rel="noreferrer"
     >
       {name}
-    </a>
+    </Link>
   );
 };
 
