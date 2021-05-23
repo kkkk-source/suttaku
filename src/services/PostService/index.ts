@@ -58,3 +58,16 @@ export function getBlogPostsOfYear(year: string) {
   }
   return res;
 }
+
+export function getBlogPostsOfCategory(category: string) {
+  const res: Array<BlogPostShortResponse> = [];
+  for (let i = 0; i < postsSummary.length; i++) {
+    const categories: Array<string> = postsSummary[i].categories;
+    for (let j = 0; j < categories.length; j++) {
+      if (category === categories[j]) {
+        res.push(postsSummary[i]);
+      }
+    }
+  }
+  return res;
+}
