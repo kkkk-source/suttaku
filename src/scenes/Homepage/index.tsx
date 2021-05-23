@@ -5,6 +5,7 @@ import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
 import ThemeSwitcher from 'components/ThemeSwitcher';
+import Category from 'components/Category';
 import About from 'pages/About';
 import Archives from 'pages/Archives';
 import BlogPosts from 'pages/BlogPosts';
@@ -45,6 +46,10 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
             <Route
               path='/p/:title'
               component={BlogPost}
+            />
+            <Route
+              path='/c/:name'
+              component={Category}
             />
           </Switch>
           <Footer />
