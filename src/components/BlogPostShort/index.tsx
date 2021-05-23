@@ -20,15 +20,15 @@ export default function BlogPostShort({
   imgUrl, 
   time, 
 }: BlogPostShortProps): JSX.Element {
-  const paramTitle = fmtTitle(title);
-  const formatedDate = fmtDate(time);
+  const link = fmtTitle(title);
+  const date = fmtDate(time);
   return (
     <RoundBox>
       <div className={styles.blogPostShort}>
         <Header
           url={imgUrl} 
           title={title} 
-          paramTitle={paramTitle} 
+          link={link} 
         />
         <div>
           <CategoryLinkList
@@ -37,10 +37,10 @@ export default function BlogPostShort({
           <Resume 
             title={title} 
             subtitle={subtitle} 
-            paramTitle={paramTitle} 
+            link={link} 
           />
           <Footer 
-            time={formatedDate} 
+            time={date} 
           />
         </div>
       </div>
@@ -48,10 +48,10 @@ export default function BlogPostShort({
   );
 };
 
-function Header({ paramTitle, title, url }: { paramTitle: string, title: string, url: string }): JSX.Element {
+function Header({ link, title, url }: { link: string, title: string, url: string }): JSX.Element {
   return (
     <header>
-      <Link to={`p/${paramTitle}`} onClick={() => window.scrollTo(0, 0)}>
+      <Link to={`p/${link}`} onClick={() => window.scrollTo(0, 0)}>
         <img 
           src={url} 
           alt={title} 
@@ -61,11 +61,11 @@ function Header({ paramTitle, title, url }: { paramTitle: string, title: string,
   );
 };
 
-function Resume({ paramTitle, title, subtitle }: { paramTitle: string, title: string, subtitle: string }): JSX.Element {
+function Resume({ link, title, subtitle }: { link: string, title: string, subtitle: string }): JSX.Element {
   return (
     <>
       <h2>
-        <Link to={`p/${paramTitle}`} onClick={() => window.scrollTo(0, 0)}>
+        <Link to={`p/${link}`} onClick={() => window.scrollTo(0, 0)}>
           {title}
         </Link>
       </h2>
