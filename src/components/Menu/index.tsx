@@ -25,6 +25,7 @@ function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.
         exact 
         to={to}
         activeClassName={style.menu__active}
+        onClick={() => window.scrollTo(0, 0)}
       >
         {children}
       </NavLink>
