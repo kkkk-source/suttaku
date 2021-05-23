@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Route, HashRouter, Switch } from 'react-router-dom';
-import BlogPost from 'components/BlogPost';
 import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
 import ThemeSwitcher from 'components/ThemeSwitcher';
-import Category from 'components/Category';
 import About from 'pages/About';
 import Archives from 'pages/Archives';
 import BlogPosts from 'pages/BlogPosts';
+import BlogPost from 'pages/BlogPost';
+import Category from 'pages/Category';
 import styles from './Homepage.module.scss';
 
 interface HomepageProps {
