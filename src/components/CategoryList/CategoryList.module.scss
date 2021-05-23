@@ -11,19 +11,10 @@
   overflow: auto;
 
   /* scrollbar styles for Firefox */
-  scrollbar-width: thin;
+  scrollbar-width: auto;
   scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 
   /* scrollbar styles for Chromium */
-  &::-webkit-scrollbar {
-    height: funcs.rem(7px);
-    border-radius: funcs.rem(10px);
-  }
-
-  &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-track {
-    border-radius: funcs.rem(10px);
-  }
-
   &::-webkit-scrollbar-thumb {
     background-color: var(--scroll-thumb);
   }
