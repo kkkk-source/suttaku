@@ -1,7 +1,6 @@
 import { getBlogPostsOfYear } from 'services/PostService';
 import CategoryList from 'components/CategoryList';
-import Timelapse from 'components/Timelapse';
-import Snapshot from 'components/Snapshot';
+import BlogPostList from 'components/BlogPostList';
 import styles from './Archives.module.scss';
 
 const years: Array<string> = [
@@ -18,31 +17,16 @@ export default function Archives() {
   const timelapses: Array<JSX.Element> = [];
 
   for (let i = 0; i < years.length; i++) {
-    const snaptshots: Array<JSX.Element> = [];
     const posts = getBlogPostsOfYear(years[i]);
 
     if (posts.length === 0) {
       continue;
     }
 
-    for (let j = 0; j < posts.length; j++) {
-      const post = posts[j];
-
-      snaptshots.push(
-        <Snapshot 
-          key={post.title}
-          title={post.title} 
-          date={post.time} 
-          imgUrl={post.imgUrl} 
-        />
-      );
-    }
     timelapses.push(
-      <Timelapse 
-        key={years[i]}
-        year={years[i]} 
-        snaptshots={snaptshots} 
-      />
+      <Timelapses year={years[i]}>
+        <BlogPostList blogPosts={posts} />
+      </Timelapses>
     );
   }
 
@@ -51,6 +35,15 @@ export default function Archives() {
       <h2>Categories</h2>
       <CategoryList />
       {timelapses}
+    </div>
+  );
+}
+
+function Timelapses({ year, children }: { year: string, children: JSX.Element }) {
+  return (
+    <div>
+      <h3>{year}</h3>
+      {children}
     </div>
   );
 }
