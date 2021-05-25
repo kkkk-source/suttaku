@@ -2,10 +2,18 @@
 @use '../../styles/abstracts/funcs';
 
 .archives {
+
   h2 {
     margin: 0 0 funcs.rem(10px);
     font-weight: 700;
     color: var(--text-800);
     font-size: fonts.$size-lg;
+  }
+
+  h3 {
+    color: var(--text-200);
+    font-size: fonts.$size-sm;
+    text-transform: uppercase;
+    margin: 0 0 funcs.rem(10px);
   }
 }
