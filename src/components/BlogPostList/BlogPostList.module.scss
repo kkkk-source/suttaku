@@ -15,7 +15,7 @@
     background-color: var(--color-fg);
 
     &:not(:last-child) {
-      border-bottom: 1px solid var(--color-bg);
+      border-bottom: funcs.rem(1px) solid var(--color-bg);
     }
 
     &:first-child {
@@ -32,12 +32,12 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      padding: 25px;
+      padding: funcs.rem(25px);
       text-decoration: none;
     }
 
     h4 {
-      margin: 0 0 4px;
+      margin: 0 0 funcs.rem(4px);
       font-size: fonts.$size-md;
       color: var(--text-900);
       text-transform: capitalize;
@@ -49,8 +49,8 @@
     }
 
     img {
-      width: 60px;
-      height: 60px;
+      width: funcs.rem(60px);
+      height: funcs.rem(60px);
       object-fit: cover;
     }
   }
