@@ -21,10 +21,7 @@ export default function BlogPostList({ fn }: { fn: () => Array<BlogPost> }) {
   });
 
   if (blogPostListItems.length === 0) {
-    return (
-      <>
-      </>
-    );
+    return (<></>);
   } else {
     return (
       <section className={styles.blogPostList}>
@@ -36,13 +33,13 @@ export default function BlogPostList({ fn }: { fn: () => Array<BlogPost> }) {
 
 function BlogPostListItem({ title, time, imgUrl }: BlogPost) {
   const formatedTitle = fmtTitle(title);
-  const date = fmtDate(time);
+  const formatedTime = fmtDate(time);
   return (
     <article>
       <Link to={`/p/${formatedTitle}`} onClick={() => window.scrollTo(0, 0)}>
         <div>
           <h4>{title}</h4>
-          <time>{date}</time>
+          <time>{formatedTime}</time>
         </div>
         <img src={imgUrl} alt={title} />
       </Link>
