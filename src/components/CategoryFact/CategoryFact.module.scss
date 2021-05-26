@@ -1,0 +1,28 @@
+@use '../../styles/abstracts/radii';
+@use '../../styles/abstracts/fonts';
+@use '../../styles/abstracts/funcs';
+
+.categoryFact {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: funcs.rem(25px);
+
+  h2 {
+    margin: 0 0 funcs.rem(4px);
+    font-size: fonts.$size-lg;
+    color: var(--text-900);
+    text-transform: capitalize;
+  }
+
+  p {
+    color: var(--text-200);
+    font-size: fonts.$size-sm;
+  }
+
+  img {
+    width: funcs.rem(60px);
+    height: funcs.rem(60px);
+    object-fit: cover;
+  }
+}
