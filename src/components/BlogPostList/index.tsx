@@ -2,40 +2,47 @@ import { Link } from 'react-router-dom';
 import { fmtTitle, fmtDate } from 'services/FmtService';
 import styles from './BlogPostList.module.scss';
 
-interface BlogPostList {
+export interface BlogPost {
   title:  string
   imgUrl: string
   time:   string
 }
 
-export default function BlogPostList({ blogPosts }: { blogPosts: Array<{ title: string, imgUrl: string, time: string }> }) {
-  const jsxElements: Array<JSX.Element> = [];
-  for (let i = 0; i < blogPosts.length; i++) {
-    const blogPost = blogPosts[i];
-    jsxElements.push(
+export default function BlogPostList({ fn }: { fn: () => Array<BlogPost> }) {
+  const blogPostListItems: Array<JSX.Element> = fn().map((blogPost: BlogPost) => {
+    return (
       <BlogPostListItem 
-        title={blogPost.title}
-        imgUrl={blogPost.imgUrl}
-        date={blogPost.time}
+        key={blogPost.title} 
+        time={blogPost.time} 
+        imgUrl={blogPost.imgUrl} 
+        title={blogPost.title} 
       />
     );
+  });
+
+  if (blogPostListItems.length === 0) {
+    return (
+      <>
+      </>
+    );
+  } else {
+    return (
+      <section className={styles.blogPostList}>
+        {blogPostListItems}
+      </section>
+    );
   }
-  return (
-    <section className={styles.blogPostList}>
-      {jsxElements}
-    </section>
-  );
 }
 
-function BlogPostListItem({ title, date, imgUrl }: { title: string, date: string, imgUrl: string }) {
+function BlogPostListItem({ title, time, imgUrl }: BlogPost) {
   const formatedTitle = fmtTitle(title);
-  const time = fmtDate(date);
+  const date = fmtDate(time);
   return (
     <article>
       <Link to={`/p/${formatedTitle}`} onClick={() => window.scrollTo(0, 0)}>
         <div>
           <h4>{title}</h4>
-          <time>{time}</time>
+          <time>{date}</time>
         </div>
         <img src={imgUrl} alt={title} />
       </Link>
