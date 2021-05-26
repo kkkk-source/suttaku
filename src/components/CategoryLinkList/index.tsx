@@ -19,6 +19,7 @@ function CategoryLink({ name }: { name: string }): JSX.Element {
     <Link 
       to={`/c/${name}`}
       style={{ backgroundColor: getColorOfCategory(name) }} 
+      onClick={() => window.scrollTo(0, 0)}
     >
       {name}
     </Link>
