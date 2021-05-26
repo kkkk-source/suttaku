@@ -2,13 +2,10 @@ import { Link } from 'react-router-dom';
 import { getColorOfCategory } from 'services/CategoryService';
 import styles from './CategoryLinkList.module.scss';
 
-function CategoryLinkList({ categories }: { categories: Array<string> }): JSX.Element {
-  const categoryLinks: Array<JSX.Element> = [];
-  for (let i = 0; i < categories.length; i++) {
-    categoryLinks.push(
-      <CategoryLink key={i} name={categories[i]} />
-    );
-  }
+export default function CategoryLinkList({ categories }: { categories: Array<string> }): JSX.Element {
+  const categoryLinks: Array<JSX.Element> = categories.map((category: string) => {
+    return ( <CategoryLink key={category} name={category} />);
+  });
 
   return (
     <ul className={styles.categoryLinkList}>
@@ -27,5 +24,3 @@ function CategoryLink({ name }: { name: string }): JSX.Element {
     </Link>
   );
 };
-
-export default CategoryLinkList;
