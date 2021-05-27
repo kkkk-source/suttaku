@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { fmtDate } from 'services/FmtService';
-import { getBlogPostByTitle } from 'services/PostService';
+import { dateFormatter } from 'services/FormatterService';
+import { IBlogPost, getBlogPostByTitle } from 'services/BlogPostService';
 import RoundBox from 'components/RoundBox';
 import CategoryLinkList from 'components/CategoryLinkList';
 import ClockSVG from 'components/svg/ClockSVG';
@@ -8,8 +8,8 @@ import styles from './BlogPost.module.scss';
 
 export default function BlogPost() {
   const { title } = useParams<{ title: string }>();
-  const post = getBlogPostByTitle(title);
-  const formatedDate = fmtDate(post!.time);
+  const post: IBlogPost | undefined = getBlogPostByTitle(title);
+  const date = dateFormatter(post!.time);
   return (
     <RoundBox>
       <div className={styles.blogPost}>
@@ -24,7 +24,7 @@ export default function BlogPost() {
           <h3>{post!.subtitle}</h3>
           <footer>
             <ClockSVG />
-            <time>{formatedDate}</time>
+            <time>{date}</time>
           </footer>
         </div>
       </div>

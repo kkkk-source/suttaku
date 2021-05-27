@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
-import { fmtTitle, fmtDate } from 'services/FmtService';
+import { titleFormatter, dateFormatter } from 'services/FormatterService';
 import RoundBox from 'components/RoundBox';
 import CategoryLinkList from 'components/CategoryLinkList';
 import ClockSVG from 'components/svg/ClockSVG';
 import styles from './BlogPostShort.module.scss';
 
 export interface BlogPostShortProps {
-  title:      string
-  subtitle:   string
+  title: string
+  subtitle: string
   categories: Array<string>
-  imgUrl:     string
-  time:       string
+  imgUrl: string
+  time: string
 }
 
 export default function BlogPostShort({ 
@@ -20,8 +20,8 @@ export default function BlogPostShort({
   imgUrl, 
   time, 
 }: BlogPostShortProps): JSX.Element {
-  const link = fmtTitle(title);
-  const date = fmtDate(time);
+  const link = titleFormatter(title);
+  const date = dateFormatter(time);
   return (
     <RoundBox>
       <div className={styles.blogPostShort}>

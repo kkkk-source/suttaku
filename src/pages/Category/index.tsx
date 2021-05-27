@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { getBlogPostsOfCategory } from 'services/PostService';
-import BlogPostList, { BlogPost } from 'components/BlogPostList';
+import { IBlogPost, getBlogPostsOfCategory } from 'services/BlogPostService';
+import BlogPostList from 'components/BlogPostList';
 import CategoryFact from 'components/CategoryFact';
 
 export default function Category() {
@@ -9,7 +9,7 @@ export default function Category() {
     <div>
       <CategoryFact name={name} />
       <BlogPostList 
-        fn={() => ((): Array<BlogPost> => getBlogPostsOfCategory(name))()} 
+        fn={() => ((): Array<IBlogPost> => getBlogPostsOfCategory(name))()} 
       />
     </div>
   );

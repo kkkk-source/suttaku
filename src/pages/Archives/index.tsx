@@ -1,5 +1,5 @@
-import { getBlogPostsOfYear } from 'services/PostService';
-import BlogPostList, { BlogPost } from 'components/BlogPostList';
+import { IBlogPost, getBlogPostsOfYear } from 'services/BlogPostService';
+import BlogPostList  from 'components/BlogPostList';
 import CategoryList from 'components/CategoryList';
 import styles from './Archives.module.scss';
 
@@ -13,7 +13,7 @@ export default function Archives() {
         year={year}
       >
         <BlogPostList 
-          fn={() => ((): Array<BlogPost> => getBlogPostsOfYear(year))()} 
+          fn={() => ((): Array<IBlogPost> => getBlogPostsOfYear(year))()} 
         />
       </Timelapse>
     );

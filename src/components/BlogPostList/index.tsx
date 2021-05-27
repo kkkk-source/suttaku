@@ -1,15 +1,10 @@
 import { Link } from 'react-router-dom';
-import { fmtTitle, fmtDate } from 'services/FmtService';
+import { IBlogPost } from 'services/BlogPostService'; 
+import { titleFormatter, dateFormatter } from 'services/FormatterService';
 import styles from './BlogPostList.module.scss';
 
-export interface BlogPost {
-  title:  string
-  imgUrl: string
-  time:   string
-}
-
-export default function BlogPostList({ fn }: { fn: () => Array<BlogPost> }) {
-  const blogPostListItems: Array<JSX.Element> = fn().map((blogPost: BlogPost) => {
+export default function BlogPostList({ fn }: { fn: () => Array<IBlogPost> }) {
+  const blogPostListItems: Array<JSX.Element> = fn().map((blogPost: IBlogPost) => {
     return (
       <BlogPostListItem 
         key={blogPost.title} 
@@ -31,9 +26,9 @@ export default function BlogPostList({ fn }: { fn: () => Array<BlogPost> }) {
   }
 }
 
-function BlogPostListItem({ title, time, imgUrl }: BlogPost) {
-  const formatedTitle = fmtTitle(title);
-  const formatedTime = fmtDate(time);
+function BlogPostListItem({ title, time, imgUrl }: { title: string, time: string, imgUrl: string }) {
+  const formatedTitle = titleFormatter(title);
+  const formatedTime = dateFormatter(time);
   return (
     <article>
       <Link to={`/p/${formatedTitle}`} onClick={() => window.scrollTo(0, 0)}>
