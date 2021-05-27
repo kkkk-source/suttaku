@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, Component } from 'react';
-import style from './ThemeSwitcher.module.scss';
+import style from './ThemePicker.module.scss';
 
 type Props = {
   theme:    string
@@ -10,7 +10,7 @@ type State = {
   active: boolean 
 };
 
-class ThemeSwitcher extends Component<Props, State> {
+export default class ThemePicker extends Component<Props, State> {
   state = { active: (this.props.theme === 'dark') };
 
   onClickHandler = () => {
@@ -27,7 +27,7 @@ class ThemeSwitcher extends Component<Props, State> {
 
   render() {
     return (
-      <div className={style.themeSwitcher}>
+      <div className={style.themePicker}>
         <label className={style.switch}>
           <input 
             type="checkbox"
@@ -48,5 +48,3 @@ class ThemeSwitcher extends Component<Props, State> {
     );
   }
 }
-
-export default ThemeSwitcher;

@@ -3,7 +3,7 @@ import { Route, HashRouter, Switch } from 'react-router-dom';
 import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
-import ThemeSwitcher from 'components/ThemeSwitcher';
+import ThemePicker from 'components/ThemePicker';
 import About from 'pages/About';
 import Archives from 'pages/Archives';
 import BlogPosts from 'pages/BlogPosts';
@@ -23,7 +23,7 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
         <aside>
           <SiteFact />
           <Menu />
-          <ThemeSwitcher 
+          <ThemePicker 
             theme={theme} 
             setTheme={setTheme} 
           />
