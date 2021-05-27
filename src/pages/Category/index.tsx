@@ -6,11 +6,11 @@ import CategoryFact from 'components/CategoryFact';
 export default function Category() {
   const { name } = useParams<{ name: string }>();
   return (
-    <div>
+    <>
       <CategoryFact name={name} />
       <BlogPostList 
         fn={() => ((): Array<IBlogPost> => getBlogPostsOfCategory(name))()} 
       />
-    </div>
+    </>
   );
 }

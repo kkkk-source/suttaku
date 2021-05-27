@@ -15,5 +15,5 @@ export default function BlogPosts(): JSX.Element  {
     );
   });
 
-  return <div>{blogPosts}</div>;
+  return <>{blogPosts}</>;
 };
