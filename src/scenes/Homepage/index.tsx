@@ -22,8 +22,7 @@ export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Elemen
       <HashRouter>
         <aside>
           <SiteFact />
-          <Menu />
-          <ThemePicker 
+          <Menu 
             theme={theme} 
             setTheme={setTheme} 
           />

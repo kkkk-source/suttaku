@@ -1,13 +1,21 @@
+import { Dispatch, SetStateAction } from 'react';
 import { NavLink } from 'react-router-dom';
+import ThemePicker from 'components/ThemePicker';
 import ArchiveSVG from 'components/svg/ArchiveSVG';
 import AboutSVG from 'components/svg/AboutSVG';
 import HomeSVG from 'components/svg/HomeSVG';
 import style from './Menu.module.scss';
 
-export default function Menu(): JSX.Element {
+interface MenuProps {
+  theme:    string
+  setTheme: Dispatch<SetStateAction<string>>
+}
+
+export default function Menu({ theme, setTheme }: MenuProps): JSX.Element {
   return (
     <ul className={style.menu}>
       {MENU_ITEMS}
+      <ThemePicker theme={theme} setTheme={setTheme} />
     </ul>
   );
 };
