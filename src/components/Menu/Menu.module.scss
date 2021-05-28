@@ -2,19 +2,57 @@
 @use '../../styles/abstracts/fonts';
 @use '../../styles/abstracts/funcs';
 
+$menu-height: 40px;
+
 .menu {
+  display: block;
   width: 100%;
-  padding: 0;
+  padding-left: 0;
   list-style: none;
-  padding: funcs.rem(30px) funcs.rem(15px);
+  overflow: hidden;
+
+  &.enter {
+    max-height: 0;
+  }
+
+  &.enterActive {
+    max-height: $menu-height;
+    transition: max-height 200ms;
+  }
+
+  &.enterDone {
+    max-height: $menu-height;
+  }
+
+  &.exit {
+    max-height: $menu-height;
+  }
+
+  &.exitActive {
+    max-height: 0;
+    transition: max-height 200ms;
+  }
+
+  &.exitDone {
+    max-height: 0;
+  }
 
   @media (max-width: breaks.$md) {
     background-color: var(--color-fg);
   }
 
+  li:first-child {
+    margin-top: funcs.rem(30px);
+  }
+
+  li:last-child {
+    margin-bottom: funcs.rem(30px);
+  }
+
   li {
     padding: funcs.rem(10px) 0;
     margin-bottom: funcs.rem(15px);
+    margin-left: funcs.rem(15px);
   }
 
   a {
