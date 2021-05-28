@@ -1,0 +1,18 @@
+@use '../../styles/abstracts/breaks';
+@use '../../styles/abstracts/funcs';
+
+.toggleMenu {
+  display: none;
+
+  @media (max-width: breaks.$md) {
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: funcs.rem(30px) funcs.rem(15px);
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    border: 1px solid red;
+  }
+}
