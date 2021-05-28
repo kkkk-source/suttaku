@@ -1,22 +1,41 @@
-import { Dispatch, SetStateAction } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { Dispatch, SetStateAction, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import ThemePicker from 'components/ThemePicker';
 import ArchiveSVG from 'components/svg/ArchiveSVG';
 import AboutSVG from 'components/svg/AboutSVG';
 import HomeSVG from 'components/svg/HomeSVG';
-import style from './Menu.module.scss';
+import styles from './Menu.module.scss';
 
 interface MenuProps {
-  theme:    string
+  expandedMenu: boolean
+  theme: string
   setTheme: Dispatch<SetStateAction<string>>
 }
 
-export default function Menu({ theme, setTheme }: MenuProps): JSX.Element {
+export default function Menu({ theme, setTheme, expandedMenu }: MenuProps): JSX.Element {
+  const nodeRef = useRef(null);
   return (
-    <ul className={style.menu}>
-      {MENU_ITEMS}
-      <ThemePicker theme={theme} setTheme={setTheme} />
-    </ul>
+    <CSSTransition
+      nodeRef={nodeRef}
+      in={expandedMenu}
+      timeout={200}
+      classNames={{
+        enter: styles.enter,
+        enterActive: styles.enterActive,
+        enterDone: styles.enterDone,
+        exit: styles.exit,
+        exitActive: styles.exitActive,
+        exitDone: styles.exitDone
+      }}
+    >
+      <ul ref={nodeRef} className={`${styles.menu}`}>
+        {MENU_ITEMS}
+        <li>
+          <ThemePicker theme={theme} setTheme={setTheme} />
+        </li>
+      </ul>
+    </CSSTransition>
   );
 };
 
@@ -32,7 +51,7 @@ function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.
       <NavLink 
         exact 
         to={to}
-        activeClassName={style.menu__active}
+        activeClassName={styles.menu__active}
         onClick={() => window.scrollTo(0, 0)}
       >
         {children}
