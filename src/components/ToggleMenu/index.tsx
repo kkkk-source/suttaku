@@ -2,18 +2,14 @@ import { Dispatch, SetStateAction } from 'react';
 import styles from './ToggleMenu.module.scss';
 
 interface ToggleMenuProps {
-  expandedMenu: boolean
-  setExpandedMenu: Dispatch<SetStateAction<boolean>>
+  expMenu: boolean
+  setExpMenu: Dispatch<SetStateAction<boolean>>
 }
 
-export default function ToggleMenu({ expandedMenu, setExpandedMenu }: ToggleMenuProps) {
-  const onClickHandler = () => {
-    setExpandedMenu(!expandedMenu);
-  }
-
+export default function ToggleMenu({ expMenu, setExpMenu }: ToggleMenuProps) {
   return (
     <button 
-      onClick={() => onClickHandler()} 
+      onClick={() => setExpMenu(!expMenu)} 
       className={styles.toggleMenu}
     >
       <span className={styles.hamburger}>

@@ -14,24 +14,24 @@ import styles from './Homepage.module.scss';
 interface HomepageProps {
   theme: string
   setTheme: Dispatch<SetStateAction<string>>
-  expandedMenu: boolean
-  setExpandedMenu: Dispatch<SetStateAction<boolean>>
+  expMenu: boolean
+  setExpMenu: Dispatch<SetStateAction<boolean>>
 }
 
-export default function Homepage({ theme, setTheme, expandedMenu, setExpandedMenu }: HomepageProps): JSX.Element {
+export default function Homepage({ theme, setTheme, expMenu, setExpMenu }: HomepageProps): JSX.Element {
   return (
     <section className={styles.homepage}>
       <HashRouter>
         <aside>
           <ToggleMenu 
-            expandedMenu={expandedMenu}
-            setExpandedMenu={setExpandedMenu}
+            expMenu={expMenu}
+            setExpMenu={setExpMenu}
           />
           <SiteFact />
           <Menu 
             theme={theme} 
             setTheme={setTheme} 
-            expandedMenu={expandedMenu}
+            expMenu={expMenu}
           />
         </aside>
         <main>

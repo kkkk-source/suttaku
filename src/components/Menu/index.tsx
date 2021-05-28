@@ -8,17 +8,17 @@ import HomeSVG from 'components/svg/HomeSVG';
 import styles from './Menu.module.scss';
 
 interface MenuProps {
-  expandedMenu: boolean
+  expMenu: boolean
   theme: string
   setTheme: Dispatch<SetStateAction<string>>
 }
 
-export default function Menu({ theme, setTheme, expandedMenu }: MenuProps): JSX.Element {
+export default function Menu({ theme, setTheme, expMenu }: MenuProps): JSX.Element {
   const nodeRef = useRef(null);
   return (
     <CSSTransition
       nodeRef={nodeRef}
-      in={expandedMenu}
+      in={expMenu}
       timeout={200}
       classNames={{
         enter: styles.enter,
