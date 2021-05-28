@@ -38,6 +38,7 @@ $menu-height: 400px;
   }
 
   @media (max-width: breaks.$md) {
+    max-height: 0;
     background-color: var(--color-fg);
   }
 
