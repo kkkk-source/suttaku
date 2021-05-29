@@ -2,8 +2,8 @@
 @use '../../styles/abstracts/funcs';
 
 .toggleMenu {
-  display: none;
   cursor: pointer;
+  display: none;
   border-style: none;
   background-color: var(--color-bg);
 
@@ -17,189 +17,178 @@
     right: 0;
     top: 0;
   }
+
+  /* enter animation transition */
+  &.enterActive {
+
+    & {
+      pointer-events: none;
+    }
+
+    .inner {
+      animation-name: enter-middle-line;
+    }
+
+    .inner::before {
+      animation-name: enter-top-line;
+    }
+
+    .inner::after {
+      animation-name: enter-bottom-line;
+    }
+  }
+  /**/
+
+  /* enter animation transition is done */
+  &.enterDone {
+
+    .inner {
+      transform: rotate(135deg);
+    }
+
+    .inner::before {
+      transform: rotate(90deg);
+      top: 0;
+    }
+
+    .inner::after {
+      opacity: 0;
+      bottom: 0;
+    }
+  }
+  /**/
+
+  /* leave animation transition */
+  &.leaveActive {
+
+    & {
+      pointer-events: none;
+    }
+
+    .inner {
+      animation-name: leave-middle-line;
+    }
+
+    .inner::before {
+      animation-name: leave-top-line;
+    }
+
+    .inner::after {
+      animation-name: leave-bottom-line;
+    }
+  }
+  /**/
+
+  /* leave transition animation is done */
+  &.leaveDone {
+    .inner {
+      transform: rotate(0deg);
+    }
+
+    .inner::before {
+      top: funcs.rem(-10px);
+      transform: rotate(0deg);
+    }
+
+    .inner::after {
+      transform: rotate(0deg);
+      bottom: funcs.rem(-10px);
+      opacity: 1;
+    }
+  }
 }
 
-.hamburger {
+.outer {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-
-  &.enterActive .toggleMenu {
-    pointer-events:none;
-  }
-
-  &.leaveActive & {
-    pointer-events:none;
-  }
-
-  &.enterActive {
-
-    .hamburgerInner::before, .hamburgerInner::after, .hamburgerInner {
-      animation-duration: 400ms;
-      animation-fill-mode: forwards;
-    }
-
-    .hamburgerInner {
-      animation-name: enterMiddleLine;
-    }
-
-    .hamburgerInner::before {
-      animation-name: enterTopLine;
-    }
-
-    .hamburgerInner::after {
-      animation-name: enterBottomLine;
-    }
-  }
-  &.enterDone {
-
-    .hamburgerInner {
-      transform: rotate(135deg);
-    }
-
-    .hamburgerInner::before {
-      top: 0;
-      transform: rotate(90deg);
-    }
-
-    .hamburgerInner::after {
-      bottom: 0;
-      opacity: 0;
-    }
-  }
-
-
-  &.leaveActive {
-    .hamburgerInner::before, .hamburgerInner::after, .hamburgerInner {
-      animation-duration: 400ms;
-      animation-fill-mode: forwards;
-    }
-
-    .hamburgerInner {
-      animation-name: leaveMiddleLine;
-    }
-
-    .hamburgerInner::before {
-      animation-name: leaveTopLine;
-    }
-
-    .hamburgerInner::after {
-      animation-name: leaveBottomLine;
-    }
-  }
-
-  &.leaveDone {
-    .hamburgerInner {
-      transform: rotate(0deg);
-    }
-
-    .hamburgerInner::before {
-      top: -10px;
-      transform: rotate(0deg);
-    }
-
-    .hamburgerInner::after {
-      transform: rotate(0deg);
-      bottom: -10px;
-      opacity: 1;
-    }
-  }
 }
 
-@keyframes enterMiddleLine {
+
+/* 
+ * Hamburger lines
+ *
+ * middle line 
+ */
+@keyframes enter-middle-line {
+  50%  { transform: rotate(0deg); } 
+  100% { transform: rotate(135deg); }
+}
+
+@keyframes leave-middle-line {
+  0%  { transform: rotate(135deg); }
+  50% { transform: rotate(0); }
+}
+/**/
+
+/* line at the top */
+@keyframes enter-top-line {
+  0% { 
+    top: funcs.rem(-10px);
+  }
   50% {
     transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(135deg);
-  }
-}
-
-@keyframes leaveMiddleLine {
-  0% {
-    transform: rotate(135deg);
-  }
-  50% {
-    transform: rotate(0);
-  }
-}
-
-@keyframes enterTopLine {
-  0% {
-    top: -10px;
-  }
-  50% {
-    top: 0px;
-    transform: rotate(0deg);
-  }
-  100% {
-    top: 0px;
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes leaveTopLine {
-  0% {
-    top: 0px;
-    transform: rotate(90deg);
-  }
-  50% {
-    top: 0px;
-    transform: rotate(0deg);
-  }
-  100% {
-    top: -10px;
-  }
-}
-
-@keyframes enterBottomLine {
-  0% {
-    bottom: -10px;
-  }
-  49% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-    bottom: 0px;
-  }
-  100% {
-    opacity: 0;
-    bottom: 0px;
-  }
-}
-
-@keyframes leaveBottomLine {
-  0% {
-    opacity: 0;
-    bottom: 0px;
+    top: 0;
   } 
-  49% {
-    opacity: 0;
-    bottom: 0px;
-  }
-  50% {
-    bottom: 0px;
-    opacity: 1;
-  }
   100% {
-    bottom: -10px;
+    transform: rotate(90deg);
+    top: 0;
   }
 }
 
+@keyframes leave-top-line {
+  0% {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(0deg);
+    top: 0;
+  }
+  100% {
+    top: funcs.rem(-10px);
+  }
+}
+/**/
 
+/* line at the bottom */
+@keyframes enter-bottom-line {
+  0%  { bottom: funcs.rem(-10px); }
+  49% { opacity: 1; }
+  50% {
+    bottom: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    bottom: 0;
+  }
+}
 
+@keyframes leave-bottom-line {
+  0%   { opacity: 0; } 
+  49%  { opacity: 0; }
+  50%  { opacity: 1; bottom: 0; }
+  100% { bottom: funcs.rem(-10px); }
+}
+/**/
 
 $height: funcs.rem(2px);
 
-.hamburgerInner {
+.inner {
   width: 100%;
   height: $height;
   position: absolute;
   background-color: var(--text-900);
+
+  &, &::before, &::after {
+    border-radius: funcs.rem(4px);
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
 
   &::before, &::after {
     content: "";
@@ -211,10 +200,10 @@ $height: funcs.rem(2px);
   }
 
   &::before {
-    top: -10px;
+    top: funcs.rem(-10px);
   }
 
   &::after {
-    bottom: -10px;
+    bottom: funcs.rem(-10px);
   }
 }
