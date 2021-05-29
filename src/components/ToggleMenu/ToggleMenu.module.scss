@@ -3,16 +3,218 @@
 
 .toggleMenu {
   display: none;
+  cursor: pointer;
+  border-style: none;
+  background-color: var(--color-bg);
 
   @media (max-width: breaks.$md) {
-    height: 50px;
-    width: 50px;
-    display: block;
+    width: funcs.rem(46px);
+    height: funcs.rem(38px);
     margin: funcs.rem(30px) funcs.rem(15px);
+    padding: funcs.rem(10px) funcs.rem(8px) 0;
+    display: block;
     position: absolute;
     right: 0;
     top: 0;
+  }
+}
 
-    border: 1px solid red;
+.hamburger {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &.enterActive .toggleMenu {
+    pointer-events:none;
+  }
+
+  &.leaveActive & {
+    pointer-events:none;
+  }
+
+  &.enterActive {
+
+    .hamburgerInner::before, .hamburgerInner::after, .hamburgerInner {
+      animation-duration: 400ms;
+      animation-fill-mode: forwards;
+    }
+
+    .hamburgerInner {
+      animation-name: enterMiddleLine;
+    }
+
+    .hamburgerInner::before {
+      animation-name: enterTopLine;
+    }
+
+    .hamburgerInner::after {
+      animation-name: enterBottomLine;
+    }
+  }
+  &.enterDone {
+
+    .hamburgerInner {
+      transform: rotate(135deg);
+    }
+
+    .hamburgerInner::before {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    .hamburgerInner::after {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+
+
+  &.leaveActive {
+    .hamburgerInner::before, .hamburgerInner::after, .hamburgerInner {
+      animation-duration: 400ms;
+      animation-fill-mode: forwards;
+    }
+
+    .hamburgerInner {
+      animation-name: leaveMiddleLine;
+    }
+
+    .hamburgerInner::before {
+      animation-name: leaveTopLine;
+    }
+
+    .hamburgerInner::after {
+      animation-name: leaveBottomLine;
+    }
+  }
+
+  &.leaveDone {
+    .hamburgerInner {
+      transform: rotate(0deg);
+    }
+
+    .hamburgerInner::before {
+      top: -10px;
+      transform: rotate(0deg);
+    }
+
+    .hamburgerInner::after {
+      transform: rotate(0deg);
+      bottom: -10px;
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes enterMiddleLine {
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes leaveMiddleLine {
+  0% {
+    transform: rotate(135deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes enterTopLine {
+  0% {
+    top: -10px;
+  }
+  50% {
+    top: 0px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0px;
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes leaveTopLine {
+  0% {
+    top: 0px;
+    transform: rotate(90deg);
+  }
+  50% {
+    top: 0px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: -10px;
+  }
+}
+
+@keyframes enterBottomLine {
+  0% {
+    bottom: -10px;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+    bottom: 0px;
+  }
+  100% {
+    opacity: 0;
+    bottom: 0px;
+  }
+}
+
+@keyframes leaveBottomLine {
+  0% {
+    opacity: 0;
+    bottom: 0px;
+  } 
+  49% {
+    opacity: 0;
+    bottom: 0px;
+  }
+  50% {
+    bottom: 0px;
+    opacity: 1;
+  }
+  100% {
+    bottom: -10px;
+  }
+}
+
+
+
+
+$height: funcs.rem(2px);
+
+.hamburgerInner {
+  width: 100%;
+  height: $height;
+  position: absolute;
+  background-color: var(--text-900);
+
+  &::before, &::after {
+    content: "";
+    height: $height;
+    width: 100%;
+    right: 0;
+    position: absolute;
+    background-color: var(--text-900);
+  }
+
+  &::before {
+    top: -10px;
+  }
+
+  &::after {
+    bottom: -10px;
   }
 }
