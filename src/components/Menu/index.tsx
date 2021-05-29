@@ -19,7 +19,7 @@ export default function Menu({ theme, setTheme, expMenu }: MenuProps): JSX.Eleme
     <CSSTransition
       nodeRef={nodeRef}
       in={expMenu}
-      timeout={200}
+      timeout={{ enter: 600, exit: 500 }}
       classNames={{
         enter: styles.enter,
         enterActive: styles.enterActive,

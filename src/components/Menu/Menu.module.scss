@@ -1,45 +1,21 @@
 @use '../../styles/abstracts/breaks';
 @use '../../styles/abstracts/fonts';
 @use '../../styles/abstracts/funcs';
+@use '../../styles/abstracts/shadows';
 
 $menu-height: 400px;
 
 .menu {
-  display: block;
   width: 100%;
+  display: block;
   padding-left: 0;
   list-style: none;
   overflow: hidden;
 
-  &.enter {
-    max-height: 0;
-  }
-
-  &.enterActive {
-    max-height: $menu-height;
-    transition: max-height 200ms;
-  }
-
-  &.enterDone {
-    max-height: $menu-height;
-  }
-
-  &.exit {
-    max-height: $menu-height;
-  }
-
-  &.exitActive {
-    max-height: 0;
-    transition: max-height 200ms;
-  }
-
-  &.exitDone {
-    max-height: 0;
-  }
-
   @media (max-width: breaks.$md) {
-    max-height: 0;
     background-color: var(--color-fg);
+    max-height: 0;
+    box-shadow: shadows.$normal;
   }
 
   li:first-child {
@@ -86,4 +62,32 @@ $menu-height: 400px;
     font-weight: 700;
     color: var(--text-900);
   }
+
+  /* animation transitions */
+  &.enter {
+    max-height: 0;
+  }
+
+  &.enterActive {
+    max-height: $menu-height;
+    transition: max-height 600ms;
+  }
+
+  &.enterDone {
+    max-height: $menu-height;
+  }
+
+  &.exit {
+    max-height: $menu-height;
+  }
+
+  &.exitActive {
+    max-height: 0;
+    transition: max-height 500ms;
+  }
+
+  &.exitDone {
+    max-height: 0;
+  }
+  /**/
 }
