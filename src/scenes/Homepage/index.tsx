@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { Route, HashRouter, Switch } from 'react-router-dom';
 import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
@@ -14,11 +14,11 @@ import styles from './Homepage.module.scss';
 interface HomepageProps {
   theme: string
   setTheme: Dispatch<SetStateAction<string>>
-  expMenu: boolean
-  setExpMenu: Dispatch<SetStateAction<boolean>>
 }
 
-export default function Homepage({ theme, setTheme, expMenu, setExpMenu }: HomepageProps): JSX.Element {
+export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Element {
+  const [expMenu, setExpMenu] = useState<boolean>(false);
+
   return (
     <section className={styles.homepage}>
       <HashRouter>
