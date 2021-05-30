@@ -29,9 +29,14 @@ export default function BlogPostList({ fn }: { fn: () => Array<IBlogPost> }) {
 function BlogPostListItem({ title, time, imgUrl }: { title: string, time: string, imgUrl: string }) {
   const formatedTitle = titleFormatter(title);
   const formatedTime = dateFormatter(time);
+
+  function handleClick() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <article>
-      <Link to={`/p/${formatedTitle}`} onClick={() => window.scrollTo(0, 0)}>
+      <Link to={`/p/${formatedTitle}`} onClick={handleClick}>
         <div>
           <h4>{title}</h4>
           <time>{formatedTime}</time>

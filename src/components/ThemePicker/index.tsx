@@ -34,7 +34,7 @@ export default class ThemePicker extends Component<Props, State> {
             className={style.input}
           />
           <span 
-            onClick={() => this.onClickHandler()}
+            onClick={this.onClickHandler}
             className={style.span}
           ></span>
         </label>

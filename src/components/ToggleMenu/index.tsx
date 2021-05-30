@@ -9,6 +9,11 @@ interface ToggleMenuProps {
 
 export default function ToggleMenu({ expMenu, setExpMenu }: ToggleMenuProps) {
   const nodeRef = useRef(null);
+
+  function handleClick() {
+    setExpMenu(!expMenu);
+  }
+
   return (
     <CSSTransition 
       nodeRef={nodeRef}
@@ -22,7 +27,7 @@ export default function ToggleMenu({ expMenu, setExpMenu }: ToggleMenuProps) {
       }}
     >
       <button 
-        onClick={() => setExpMenu(!expMenu)} 
+        onClick={handleClick} 
         className={styles.toggleMenu}
         ref={nodeRef}
       >

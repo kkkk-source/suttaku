@@ -15,11 +15,15 @@ export default function CategoryLinkList({ categories }: { categories: Array<str
 };
 
 function CategoryLink({ name }: { name: string }): JSX.Element {
+  function handleClick() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <Link 
       to={`/c/${name}`}
       style={{ backgroundColor: getColorOfCategory(name) }} 
-      onClick={() => window.scrollTo(0, 0)}
+      onClick={handleClick}
     >
       {name}
     </Link>

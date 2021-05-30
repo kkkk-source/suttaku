@@ -46,13 +46,17 @@ const MENU_ITEMS: Array<JSX.Element> = [
 ];
 
 function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.Element {
+  function handleClick() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <li>
       <NavLink 
         exact 
         to={to}
         activeClassName={styles.menu__active}
-        onClick={() => window.scrollTo(0, 0)}
+        onClick={handleClick}
       >
         {children}
       </NavLink>

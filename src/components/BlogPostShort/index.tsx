@@ -49,9 +49,13 @@ export default function BlogPostShort({
 };
 
 function Header({ link, title, url }: { link: string, title: string, url: string }): JSX.Element {
+  function handleClick() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <header>
-      <Link to={`p/${link}`} onClick={() => window.scrollTo(0, 0)}>
+      <Link to={`p/${link}`} onClick={handleClick}>
         <img 
           src={url} 
           alt={title} 
@@ -62,10 +66,14 @@ function Header({ link, title, url }: { link: string, title: string, url: string
 };
 
 function Resume({ link, title, subtitle }: { link: string, title: string, subtitle: string }): JSX.Element {
+  function handleClick() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <>
       <h2>
-        <Link to={`p/${link}`} onClick={() => window.scrollTo(0, 0)}>
+        <Link to={`p/${link}`} onClick={handleClick}>
           {title}
         </Link>
       </h2>
