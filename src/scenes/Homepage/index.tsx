@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Route, 
+import { 
   HashRouter, 
-  Switch 
+  Switch,
+  Route, 
+  Redirect
 } from 'react-router-dom';
 import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
@@ -42,21 +44,26 @@ export default function Homepage({ theme, onToggleTheme }: HomepageProps): JSX.E
         <main>
           <Switch>
             <Route 
-              exact 
-              path='/' 
-              component={BlogPosts} />
-            <Route 
+              exact
               path='/about' 
               component={About} />
             <Route 
+              exact
               path='/archives' 
               component={Archives} />
             <Route
+              exact
               path='/p/:title'
               component={BlogPost} />
             <Route
+              exact
               path='/c/:name'
               component={Category} />
+            <Route 
+              exact 
+              path='/' 
+              component={BlogPosts} />
+            <Redirect to='/' />
           </Switch>
           <Footer />
         </main>

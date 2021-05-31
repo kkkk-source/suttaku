@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { IBlogPost } from 'services/BlogPostService'; 
 import { titleFormatter, dateFormatter } from 'services/FormatterService';
 import styles from './BlogPostList.module.scss';
@@ -15,15 +15,17 @@ export default function BlogPostList({ fn }: { fn: () => Array<IBlogPost> }) {
     );
   });
 
-  if (blogPostListItems.length === 0) {
-    return (<></>);
-  } else {
+  if (!blogPostListItems.length) {
     return (
-      <section className={styles.blogPostList}>
-        {blogPostListItems}
-      </section>
+      <Redirect to='/' />
     );
   }
+
+  return (
+    <section className={styles.blogPostList}>
+      {blogPostListItems}
+    </section>
+  );
 }
 
 function BlogPostListItem({ title, time, imgUrl }: { title: string, time: string, imgUrl: string }) {
