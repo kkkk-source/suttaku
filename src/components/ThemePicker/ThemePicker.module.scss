@@ -21,8 +21,8 @@
   font-size: fonts.$size-xs;
 
   &.labelActive{
-    font-weight: 700 !important;
-    color: var(--text-900) !important;
+    font-weight: 700;
+    color: var(--text-900);
   }
 }
 
