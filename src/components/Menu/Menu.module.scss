@@ -3,7 +3,7 @@
 @use '../../styles/abstracts/funcs';
 @use '../../styles/abstracts/shadows';
 
-$menu-height: 400px;
+$menu-height: funcs.rem(400px);
 
 .menu {
   width: 100%;
@@ -63,31 +63,33 @@ $menu-height: 400px;
     color: var(--text-900);
   }
 
-  /* animation transitions */
-  &.enter {
-    max-height: 0;
-  }
+  @media (max-width: breaks.$md) {
+    /* animate transitions */
+    &.enter {
+      max-height: 0;
+    }
 
-  &.enterActive {
-    max-height: $menu-height;
-    transition: max-height 600ms;
-  }
+    &.enterActive {
+      max-height: $menu-height;
+      transition: max-height 600ms;
+    }
 
-  &.enterDone {
-    max-height: $menu-height;
-  }
+    &.enterDone {
+      max-height: $menu-height;
+    }
 
-  &.exit {
-    max-height: $menu-height;
-  }
+    &.exit {
+      max-height: $menu-height;
+    }
 
-  &.exitActive {
-    max-height: 0;
-    transition: max-height 500ms;
-  }
+    &.exitActive {
+      max-height: 0;
+      transition: max-height 500ms;
+    }
 
-  &.exitDone {
-    max-height: 0;
+    &.exitDone {
+      max-height: 0;
+    }
+    /**/
   }
-  /**/
 }
