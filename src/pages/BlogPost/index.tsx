@@ -1,5 +1,5 @@
 import { useParams, Redirect } from 'react-router-dom';
-import { dateFormatter } from 'services/FormatterService';
+import { formateDate } from 'services/FormatterService';
 import { IBlogPost, getBlogPostByTitle } from 'services/BlogPostService';
 import RoundBox from 'components/RoundBox';
 import CategoryLinkList from 'components/CategoryLinkList';
@@ -28,7 +28,7 @@ export default function BlogPost() {
           <h3>{post.subtitle}</h3>
           <footer>
             <ClockSVG />
-            <time>{dateFormatter(post.time)}</time>
+            <time>{formateDate(post.time)}</time>
           </footer>
         </div>
       </div>

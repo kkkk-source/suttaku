@@ -1,6 +1,6 @@
 import { Link, Redirect } from 'react-router-dom';
 import { IBlogPost } from 'services/BlogPostService'; 
-import { titleFormatter, dateFormatter } from 'services/FormatterService';
+import { formatTitle, formateDate } from 'services/FormatterService';
 import styles from './BlogPostList.module.scss';
 
 export default function BlogPostList({ fn }: { fn: () => Array<IBlogPost> }) {
@@ -29,8 +29,8 @@ export default function BlogPostList({ fn }: { fn: () => Array<IBlogPost> }) {
 }
 
 function BlogPostListItem({ title, time, imgUrl }: { title: string, time: string, imgUrl: string }) {
-  const formatedTitle = titleFormatter(title);
-  const formatedTime = dateFormatter(time);
+  const formatedTitle = formatTitle(title);
+  const formatedTime = formateDate(time);
 
   function handleClick() {
     window.scrollTo(0, 0);

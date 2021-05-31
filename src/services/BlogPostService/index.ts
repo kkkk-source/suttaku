@@ -1,4 +1,4 @@
-import { titleFormatter, getYearOf } from 'services/FormatterService';
+import { formatTitle, getYearOf } from 'services/FormatterService';
 
 export interface IBlogPost {
   id: number
@@ -22,7 +22,7 @@ export function getBlogPostsOfCategory(category: string): Array<IBlogPost> {
 }
 
 export function getBlogPostByTitle(title: string): IBlogPost | undefined {
-  return blogPost.find((blogPost: IBlogPost) => titleFormatter(blogPost.title) === title);
+  return blogPost.find((blogPost: IBlogPost) => formatTitle(blogPost.title) === title);
 }
 
 const blogPost: Array<IBlogPost> = [

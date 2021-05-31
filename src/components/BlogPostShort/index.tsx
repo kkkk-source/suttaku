@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { titleFormatter, dateFormatter } from 'services/FormatterService';
+import { formatTitle, formateDate } from 'services/FormatterService';
 import RoundBox from 'components/RoundBox';
 import CategoryLinkList from 'components/CategoryLinkList';
 import ClockSVG from 'components/svg/ClockSVG';
@@ -20,8 +20,8 @@ export default function BlogPostShort({
   imgUrl, 
   time, 
 }: BlogPostShortProps): JSX.Element {
-  const link = titleFormatter(title);
-  const date = dateFormatter(time);
+  const link = formatTitle(title);
+  const date = formateDate(time);
   return (
     <RoundBox>
       <div className={styles.blogPostShort}>
