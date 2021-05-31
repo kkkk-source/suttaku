@@ -4,14 +4,17 @@ import styles from './App.module.scss';
 import 'styles/theme.scss';
 
 export default function App(): JSX.Element {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setToggleTheme] = useState<string>('light');
+
+  const handleToggleTheme = (theme: string) => {
+    setToggleTheme(theme);
+  };
 
   return (
     <div className={`${styles.app} ${theme}`}>
       <Homepage 
         theme={theme} 
-        setTheme={setTheme} 
-      />
+        onToggleTheme={handleToggleTheme} />
     </div>
   );
 };

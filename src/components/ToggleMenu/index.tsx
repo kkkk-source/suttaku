@@ -1,23 +1,23 @@
-import { Dispatch, SetStateAction, useRef } from 'react';
+import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ToggleMenu.module.scss';
 
 interface ToggleMenuProps {
-  expMenu: boolean
-  setExpMenu: Dispatch<SetStateAction<boolean>>
+  toggleMenu: boolean
+  onToggleMenu: (arg0: boolean) => void
 }
 
-export default function ToggleMenu({ expMenu, setExpMenu }: ToggleMenuProps) {
+export default function ToggleMenu({ toggleMenu, onToggleMenu }: ToggleMenuProps) {
   const nodeRef = useRef(null);
 
-  function handleClick() {
-    setExpMenu(!expMenu);
+  const handleToggleMenu = () => {
+    onToggleMenu(!toggleMenu);
   }
 
   return (
     <CSSTransition 
       nodeRef={nodeRef}
-      in={expMenu} 
+      in={toggleMenu} 
       timeout={400}
       classNames={{
         enterActive: styles.enterActive,
@@ -27,7 +27,7 @@ export default function ToggleMenu({ expMenu, setExpMenu }: ToggleMenuProps) {
       }}
     >
       <button 
-        onClick={handleClick} 
+        onClick={handleToggleMenu} 
         className={styles.toggleMenu}
         ref={nodeRef}
       >

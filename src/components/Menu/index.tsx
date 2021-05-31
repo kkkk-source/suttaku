@@ -1,5 +1,5 @@
+import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { Dispatch, SetStateAction, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import ThemePicker from 'components/ThemePicker';
 import ArchiveSVG from 'components/svg/ArchiveSVG';
@@ -8,17 +8,17 @@ import HomeSVG from 'components/svg/HomeSVG';
 import styles from './Menu.module.scss';
 
 interface MenuProps {
-  expMenu: boolean
+  toggleMenu: boolean
   theme: string
-  setTheme: Dispatch<SetStateAction<string>>
+  onToggleTheme: (arg0: string) => void
 }
 
-export default function Menu({ theme, setTheme, expMenu }: MenuProps): JSX.Element {
+export default function Menu({ theme, onToggleTheme, toggleMenu }: MenuProps): JSX.Element {
   const nodeRef = useRef(null);
   return (
     <CSSTransition
       nodeRef={nodeRef}
-      in={expMenu}
+      in={toggleMenu}
       timeout={{ enter: 600, exit: 500 }}
       classNames={{
         enter: styles.enter,
@@ -32,7 +32,10 @@ export default function Menu({ theme, setTheme, expMenu }: MenuProps): JSX.Eleme
       <ul ref={nodeRef} className={`${styles.menu}`}>
         {MENU_ITEMS}
         <li>
-          <ThemePicker theme={theme} setTheme={setTheme} />
+          <ThemePicker 
+            theme={theme} 
+            onToggleTheme={onToggleTheme} 
+          />
         </li>
       </ul>
     </CSSTransition>

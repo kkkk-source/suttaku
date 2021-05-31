@@ -1,9 +1,9 @@
-import { Dispatch, SetStateAction, Component } from 'react';
+import { Component } from 'react';
 import style from './ThemePicker.module.scss';
 
 type Props = {
   theme:    string
-  setTheme: Dispatch<SetStateAction<string>>
+  onToggleTheme: (arg0: string) => void
 };
 
 type State = { 
@@ -16,7 +16,7 @@ export default class ThemePicker extends Component<Props, State> {
   onClickHandler = () => {
     // Toggle between dark and light themes
     const newTheme = this.props.theme === 'dark' ? 'light' : 'dark';
-    this.props.setTheme(newTheme);
+    this.props.onToggleTheme(newTheme);
 
     if (newTheme === 'dark') {
       this.setState(() => ({ active: true }));

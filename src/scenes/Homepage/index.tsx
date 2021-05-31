@@ -1,5 +1,8 @@
-import { Dispatch, SetStateAction, useState } from 'react';
-import { Route, HashRouter, Switch } from 'react-router-dom';
+import { useState } from 'react';
+import { Route, 
+  HashRouter, 
+  Switch 
+} from 'react-router-dom';
 import SiteFact from 'components/SiteFact';
 import Menu from 'components/Menu';
 import Footer from 'components/Footer';
@@ -13,50 +16,47 @@ import styles from './Homepage.module.scss';
 
 interface HomepageProps {
   theme: string
-  setTheme: Dispatch<SetStateAction<string>>
+  onToggleTheme: (arg0: string) => void
 }
 
-export default function Homepage({ theme, setTheme }: HomepageProps): JSX.Element {
-  const [expMenu, setExpMenu] = useState<boolean>(false);
+export default function Homepage({ theme, onToggleTheme }: HomepageProps): JSX.Element {
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
+  const handleToggleMenu = (toggleMenu: boolean) => {
+    setToggleMenu(toggleMenu);
+  };
 
   return (
     <section className={styles.homepage}>
       <HashRouter>
         <aside>
           <ToggleMenu 
-            expMenu={expMenu}
-            setExpMenu={setExpMenu}
-          />
+            toggleMenu={toggleMenu}
+            onToggleMenu={handleToggleMenu} />
           <SiteFact />
           <Menu 
             theme={theme} 
-            setTheme={setTheme} 
-            expMenu={expMenu}
-          />
+            onToggleTheme={onToggleTheme} 
+            toggleMenu={toggleMenu} />
         </aside>
         <main>
           <Switch>
             <Route 
               exact 
               path='/' 
-              component={BlogPosts} 
-            />
+              component={BlogPosts} />
             <Route 
               path='/about' 
-              component={About} 
-            />
+              component={About} />
             <Route 
               path='/archives' 
-              component={Archives} 
-            />
+              component={Archives} />
             <Route
               path='/p/:title'
-              component={BlogPost}
-            />
+              component={BlogPost} />
             <Route
               path='/c/:name'
-              component={Category}
-            />
+              component={Category} />
           </Switch>
           <Footer />
         </main>
