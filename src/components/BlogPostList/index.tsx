@@ -1,4 +1,4 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { IBlogPost } from 'services/BlogPostService'; 
 import { formatTitle, formateDate } from 'services/FormatterService';
 import styles from './BlogPostList.module.scss';
@@ -12,17 +12,11 @@ export default function BlogPostList({ data }: BlogPostListProps) {
     return (
       <BlogPostListItem 
         key={blogPost.title} 
+        title={blogPost.title} 
         time={blogPost.time} 
-        imgUrl={blogPost.imgUrl} 
-        title={blogPost.title} />
+        imgUrl={blogPost.imgUrl} />
     );
   });
-
-  if (!blogPostListItems.length) {
-    return (
-      <Redirect to='/' />
-    );
-  }
 
   return (
     <section className={styles.blogPostList}>
@@ -31,7 +25,11 @@ export default function BlogPostList({ data }: BlogPostListProps) {
   );
 }
 
-function BlogPostListItem({ title, time, imgUrl }: { title: string, time: string, imgUrl: string }) {
+function BlogPostListItem({
+  title, 
+  time, 
+  imgUrl 
+}: { title: string, time: string, imgUrl: string }) {
   const formatedTitle = formatTitle(title);
   const formatedTime = formateDate(time);
 

@@ -13,7 +13,11 @@ interface MenuProps {
   onToggleTheme: (arg0: string) => void
 }
 
-export default function Menu({ theme, onToggleTheme, toggleMenu }: MenuProps): JSX.Element {
+export default function Menu({ 
+  theme, 
+  onToggleTheme, 
+  toggleMenu 
+}: MenuProps): JSX.Element {
   const nodeRef = useRef(null);
   return (
     <CSSTransition
@@ -48,7 +52,10 @@ const MENU_ITEMS: Array<JSX.Element> = [
   <MenuItem key={2} to={'/archives'} children={<Archives />} />,
 ];
 
-function MenuItem({ to, children }: { to: string, children: JSX.Element }): JSX.Element {
+function MenuItem({ 
+  to, 
+  children 
+}: { to: string, children: JSX.Element }): JSX.Element {
   function handleClick() {
     window.scrollTo(0, 0);
   }

@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import { getColorOfCategory } from 'services/CategoryService';
 import styles from './CategoryLinkList.module.scss';
 
-export default function CategoryLinkList({ categories }: { categories: Array<string> }): JSX.Element {
+interface CategoryLinkListProps {
+  categories: Array<string>
+}
+
+export default function CategoryLinkList({ categories }: CategoryLinkListProps): JSX.Element {
   const categoryLinks: Array<JSX.Element> = categories.map((category: string) => {
     return ( <CategoryLink key={category} name={category} />);
   });

@@ -24,13 +24,11 @@ export default function ToggleMenu({ toggleMenu, onToggleMenu }: ToggleMenuProps
         enterDone: styles.enterDone,
         exitActive: styles.leaveActive,
         exitDone: styles.leaveDone
-      }}
-    >
+      }} >
       <button 
         onClick={handleToggleMenu} 
         className={styles.toggleMenu}
-        ref={nodeRef}
-      >
+        ref={nodeRef} >
         <span className={styles.outer}>
           <span className={styles.inner}></span>
         </span>

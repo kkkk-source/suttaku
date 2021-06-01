@@ -48,7 +48,11 @@ export default function BlogPostShort({
   );
 };
 
-function Header({ link, title, url }: { link: string, title: string, url: string }): JSX.Element {
+function Header({ 
+  link, 
+  title, 
+  url 
+}: { link: string, title: string, url: string }): JSX.Element {
   function handleClick() {
     window.scrollTo(0, 0);
   }
@@ -65,7 +69,11 @@ function Header({ link, title, url }: { link: string, title: string, url: string
   );
 };
 
-function Resume({ link, title, subtitle }: { link: string, title: string, subtitle: string }): JSX.Element {
+function Resume({ 
+  link, 
+  title, 
+  subtitle 
+}: { link: string, title: string, subtitle: string }): JSX.Element {
   function handleClick() {
     window.scrollTo(0, 0);
   }

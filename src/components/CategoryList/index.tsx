@@ -21,7 +21,11 @@ export default function CategoryList(): JSX.Element {
   );
 }
 
-function Category({ name, imgUrl, cssGradient }: { name: string, imgUrl: string, cssGradient: string }): JSX.Element {
+function Category({ 
+  name, 
+  imgUrl, 
+  cssGradient 
+}: { name: string, imgUrl: string, cssGradient: string }): JSX.Element {
   return (
     <article>
       <Link to={`/c/${name}`}>
