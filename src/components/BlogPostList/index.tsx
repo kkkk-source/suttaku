@@ -3,15 +3,18 @@ import { IBlogPost } from 'services/BlogPostService';
 import { formatTitle, formateDate } from 'services/FormatterService';
 import styles from './BlogPostList.module.scss';
 
-export default function BlogPostList({ fn }: { fn: () => Array<IBlogPost> }) {
-  const blogPostListItems: Array<JSX.Element> = fn().map((blogPost: IBlogPost) => {
+export interface BlogPostListProps {
+  data: Array<IBlogPost>
+}
+
+export default function BlogPostList({ data }: BlogPostListProps) {
+  const blogPostListItems: Array<JSX.Element> = data.map((blogPost: IBlogPost) => {
     return (
       <BlogPostListItem 
         key={blogPost.title} 
         time={blogPost.time} 
         imgUrl={blogPost.imgUrl} 
-        title={blogPost.title} 
-      />
+        title={blogPost.title} />
     );
   });
 

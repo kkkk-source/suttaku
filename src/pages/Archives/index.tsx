@@ -1,5 +1,6 @@
 import { IBlogPost, getBlogPostsOfYear } from 'services/BlogPostService';
-import BlogPostList  from 'components/BlogPostList';
+import { withRedirect } from 'components/WithRedirect';
+import BlogPostList from 'components/BlogPostList';
 import CategoryList from 'components/CategoryList';
 import styles from './Archives.module.scss';
 
@@ -7,14 +8,20 @@ const years: Array<string> = [ '2021', '2020' ];
 
 export default function Archives() {
   const timelapses: Array<JSX.Element> = years.map((year: string) => {
+    function getBlogPostsOfYearX() {
+      return function(): Array<IBlogPost> {
+        return getBlogPostsOfYear(year);
+      }
+    }
+
+    const BlogPostListWithRedirect = withRedirect(BlogPostList, getBlogPostsOfYearX());
+
     return (
       <Timelapse 
         key={year} 
         year={year}
       >
-        <BlogPostList 
-          fn={() => ((): Array<IBlogPost> => getBlogPostsOfYear(year))()} 
-        />
+        <BlogPostListWithRedirect />
       </Timelapse>
     );
   });
