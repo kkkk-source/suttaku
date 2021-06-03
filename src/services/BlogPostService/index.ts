@@ -13,12 +13,20 @@ export function getBlogPosts(): Array<IBlogPost> {
   return blogPost;
 }
 
-export function getBlogPostsOfYear(year: string): Array<IBlogPost> {
-  return blogPost.filter((blogPost: IBlogPost) => getYearOf(blogPost.time) === year);
+export function getBlogPostsOfYear(year: string): Array<IBlogPost> | undefined {
+  const filteredBlogPosts = blogPost.filter((blogPost: IBlogPost) => getYearOf(blogPost.time) === year);
+  if (!filteredBlogPosts.length) {
+    return undefined;
+  }
+  return filteredBlogPosts;
 }
 
-export function getBlogPostsOfCategory(category: string): Array<IBlogPost> {
-  return blogPost.filter((blogPost: IBlogPost) => blogPost.categories.includes(category));
+export function getBlogPostsOfCategory(category: string): Array<IBlogPost> | undefined {
+  const filteredBlogPosts = blogPost.filter((blogPost: IBlogPost) => blogPost.categories.includes(category));
+  if (!filteredBlogPosts.length) {
+    return undefined;
+  }
+  return filteredBlogPosts;
 }
 
 export function getBlogPostByTitle(title: string): IBlogPost | undefined {
