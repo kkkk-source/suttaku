@@ -1,30 +1,27 @@
 import { IBlogPost, getBlogPostsOfYear } from 'services/BlogPostService';
-import { withRedirect } from 'components/WithRedirect';
 import BlogPostList from 'components/BlogPostList';
 import CategoryList from 'components/CategoryList';
 import styles from './Archives.module.scss';
 
-const years: Array<string> = [ '2021', '2020' ];
+const years: Array<string> = [ '2021', '2018', '2020', '2019' ];
 
 export default function Archives() {
-  const timelapses: Array<JSX.Element> = years.map((year: string) => {
-    function getBlogPostsOfYearX() {
-      return function(): Array<IBlogPost> {
-        return getBlogPostsOfYear(year);
-      }
+  const timelapses: Array<JSX.Element> = [];
+
+  for (let i = 0; i < years.length; i++) {
+    const blogPosts: Array<IBlogPost> | undefined = getBlogPostsOfYear(years[i]);
+    if (!blogPosts) {
+      continue;
     }
 
-    const BlogPostListWithRedirect = withRedirect(BlogPostList, getBlogPostsOfYearX());
-
-    return (
+    timelapses.push(
       <Timelapse 
-        key={year} 
-        year={year}
-      >
-        <BlogPostListWithRedirect />
+        key={years[i]} 
+        year={years[i]} >
+        <BlogPostList blogPosts={blogPosts} />
       </Timelapse>
     );
-  });
+  }
 
   return (
     <div className={styles.archives}>
