@@ -4,11 +4,11 @@ import { formatTitle, formateDate } from 'services/FormatterService';
 import styles from './BlogPostList.module.scss';
 
 export interface BlogPostListProps {
-  data: Array<IBlogPost>
+  blogPosts: Array<IBlogPost>
 }
 
-export default function BlogPostList({ data }: BlogPostListProps) {
-  const blogPostListItems: Array<JSX.Element> = data.map((blogPost: IBlogPost) => {
+export default function BlogPostList({ blogPosts }: BlogPostListProps) {
+  const blogPostListItems: Array<JSX.Element> = blogPosts.map((blogPost: IBlogPost) => {
     return (
       <BlogPostListItem 
         key={blogPost.title} 
