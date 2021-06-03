@@ -2,7 +2,6 @@ import RoundBox from 'components/RoundBox';
 import { ICategory, getCategoryByName } from 'services/CategoryService';
 import styles from './CategoryFact.module.scss';
 
-// TODO: use withRedirect here to
 export default function CategoryFact({ name }: { name: string }) {
   const category: ICategory | undefined = getCategoryByName(name);
   if (!category) return <></>; 
