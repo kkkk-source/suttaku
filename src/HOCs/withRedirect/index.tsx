@@ -7,15 +7,13 @@ interface WithRedirectProps<T> {
 
 export function withRedirect<T, P extends WithRedirectProps<T>, C>(
   WrappedComponent: ComponentType<P & C>,
-  getData: () => Array<T>
+  data: Array<T> | undefined
 ) {
 
   type Props = JSX.LibraryManagedAttributes<C, Omit<P, 'data'>>;
 
   return function(props: Props) {
-    const data: Array<T> = getData(); 
-
-    if (!data.length) {
+    if (!data) {
       return <Redirect to='/' />;
     }
 
