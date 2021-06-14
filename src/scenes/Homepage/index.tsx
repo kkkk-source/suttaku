@@ -16,16 +16,17 @@ import BlogPost from 'pages/BlogPost';
 import Category from 'pages/Category';
 import styles from './Homepage.module.scss';
 
-interface HomepageProps {
-  theme: string
-  onToggleTheme: (arg0: string) => void
-}
-
-export default function Homepage({ theme, onToggleTheme }: HomepageProps): JSX.Element {
+export default function Homepage(): JSX.Element {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const [theme, setToggleTheme] = useState<string>('light');
 
   const handleToggleMenu = (toggleMenu: boolean) => {
     setToggleMenu(toggleMenu);
+  };
+
+  const handleToggleTheme = (theme: string) => {
+    setToggleTheme(theme);
+    document.documentElement.className = theme;
   };
 
   return (
@@ -38,7 +39,7 @@ export default function Homepage({ theme, onToggleTheme }: HomepageProps): JSX.E
           <SiteFact />
           <Menu 
             theme={theme} 
-            onToggleTheme={onToggleTheme} 
+            onToggleTheme={handleToggleTheme} 
             toggleMenu={toggleMenu} />
         </aside>
         <main>
