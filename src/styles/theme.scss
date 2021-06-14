@@ -1,3 +1,18 @@
+/* default colors */
+:root {
+  --color-bg: #f5f5fa;
+  --color-fg: #ffffff;
+  --text-900: #2c3e50;
+  --text-800: hsl(0, 0%, 0%);
+  --text-300: hsl(0, 0%, 45%);
+  --text-200: hsl(0, 0%, 73%);
+
+  --deco: #ff4651;
+  
+  --scroll-thumb: hsl(0, 0%, 85%);
+  --scroll-track: var(--color-bg);
+}
+
 .dark {
   --color-bg: #303030;
   --color-fg: #424242;
