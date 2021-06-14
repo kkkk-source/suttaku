@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import style from './ThemePicker.module.scss';
 
-type ThemePickerProps = {
-  theme: string
-  onToggleTheme: (arg0: string) => void
-};
-
-export default function ThemePicker({ theme, onToggleTheme }: ThemePickerProps) {
+export default function ThemePicker() {
+  const [theme, setToggleTheme] = useState<string>('light');
   const [active, setActive] = useState<boolean>(theme === 'dark');
 
   const handleClick = () => {
     // Toggle between dark and light themes
     const newTheme = theme === 'dark' ? 'light' : 'dark';
-    onToggleTheme(newTheme);
+    document.documentElement.className = newTheme;
+
+    setToggleTheme(newTheme);
     setActive(newTheme === 'dark');
   };
 

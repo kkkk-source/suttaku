@@ -9,13 +9,9 @@ import styles from './Menu.module.scss';
 
 interface MenuProps {
   toggleMenu: boolean
-  theme: string
-  onToggleTheme: (arg0: string) => void
 }
 
 export default function Menu({ 
-  theme, 
-  onToggleTheme, 
   toggleMenu 
 }: MenuProps): JSX.Element {
   const nodeRef = useRef(null);
@@ -36,10 +32,7 @@ export default function Menu({
       <ul ref={nodeRef} className={`${styles.menu}`}>
         {MENU_ITEMS}
         <li>
-          <ThemePicker 
-            theme={theme} 
-            onToggleTheme={onToggleTheme} 
-          />
+          <ThemePicker />
         </li>
       </ul>
     </CSSTransition>

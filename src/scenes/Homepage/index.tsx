@@ -18,15 +18,9 @@ import styles from './Homepage.module.scss';
 
 export default function Homepage(): JSX.Element {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-  const [theme, setToggleTheme] = useState<string>('light');
 
   const handleToggleMenu = (toggleMenu: boolean) => {
     setToggleMenu(toggleMenu);
-  };
-
-  const handleToggleTheme = (theme: string) => {
-    setToggleTheme(theme);
-    document.documentElement.className = theme;
   };
 
   return (
@@ -38,8 +32,6 @@ export default function Homepage(): JSX.Element {
             onToggleMenu={handleToggleMenu} />
           <SiteFact />
           <Menu 
-            theme={theme} 
-            onToggleTheme={handleToggleTheme} 
             toggleMenu={toggleMenu} />
         </aside>
         <main>
